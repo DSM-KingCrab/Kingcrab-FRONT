@@ -18,7 +18,7 @@ const StyledInput = styled.input`
   border-radius: 10px;
   &::placeholder{
     color: ${theme.color.gray[500]};
-    
+    font-size: 18px;
   }
 `
 
