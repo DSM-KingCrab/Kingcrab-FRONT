@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Wanted Sans M";
+  src: url(./WantedSans-Medium.woff) format(woff);
+}
+@font-face {
+  font-family: "Wanted Sans R";
+  src: url(./WantedSans-Regular.woff) format(woff);
+}
+@font-face {
+  font-family: "Wanted Sans B";
+  src: url(./WantedSans-SemiBold.woff) format(woff);
+}
+
+* {
+  font-family: "Wanted Sans M";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
