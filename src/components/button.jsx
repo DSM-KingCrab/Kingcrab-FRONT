@@ -36,7 +36,7 @@ const MediumButton = styled.div`
 
 const LargeButton = styled.div`
   background-color: ${theme.color.main[500]};
-  width: 615px;
+  width: 600px;
   height: 60px;
   display: flex;
   justify-content: center;
