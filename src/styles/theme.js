@@ -1,9 +1,7 @@
 export const theme = {
   color: {
-    red: "#FF3B32",
     black: "#000000",
-    white: "#fffffff",
-    blue: "#3278FF",
+    white: "#ffffff",
     main: {
       50: "#FFE6EA",
       100: "#FFC1CC",
@@ -16,10 +14,15 @@ export const theme = {
       800: "#FF1D3A",
     },
     gray: {
-      100: "#DDDCDD",
-      200: "#AFADB1",
-      300: "#8C8A8F",
-      400: "#79777C",
+      50: "#f1f1f2",
+      100: "#dddcdd",
+      200: "#c6c5c7",
+      300: "#afadb1",
+      400: "#9d9ca0",
+      500: "#8c8a8f",
+      600: "#848287",
+      700: "#79777c",
+      800: "#6f6d72",
     },
   },
 };
