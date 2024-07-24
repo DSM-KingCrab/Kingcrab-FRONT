@@ -1,11 +1,10 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-function Comment(props) {
-  const propName = props.placeholder;
+function Comment() {
   return(
     <>
-      <StyledComment type="text" placeholder={props.placeholder}/>
+      <StyledComment type="text" placeholder="댓글 달기"/>
     </>
   )
 }
