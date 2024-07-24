@@ -4,7 +4,6 @@ import styled from "styled-components";
 import KingCrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
 import { theme } from "../styles/theme";
 import Password from "./PassComp";
-import ButtonComp from "./ButtonComp";
 
 function SignIn() {
   return (
@@ -18,17 +17,11 @@ function SignIn() {
             <p>마고</p> <StyledH1>게</StyledH1>시판에 회원가입 하세요
           </StyledH11>
         </StyledDiv>
-        <StyledP>아이디</StyledP>
-        <Input type="text" placeholder="6자 이상 작성하세요" />
-        <StyledP>비밀번호</StyledP>
-        <Password type="text" placeholder="비밀번호를 입력하세요" />
+        <Input label="아이디" type="text" placeholder="6자 이상 작성하세요" />
+        <Password label="비밀번호" type="text" placeholder="비밀번호를 입력하세요" />
         <StyledP2>알파벳 소문자, 대문자, 특수문자 포함 8자 이상</StyledP2>
-        <StyledP>비밀번호 확인</StyledP>
-        <Password type="text" placeholder="비밀번호를 한 번 더 입력하세요" />
+        <Password label="비밀번호 확인" type="text" placeholder="비밀번호를 한 번 더 입력하세요" />
         <StyledP2>비밀번호를 정확하게 입력하세요</StyledP2>
-        <ButtonComp onClick={() => {}} size={"large"}>
-          회원가입
-        </ButtonComp>
       </StyledSection>
     </StyledDiv>
   );
@@ -67,7 +60,6 @@ const StyledH11 = styled.span`
 `;
 const StyledP = styled.p`
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   font-size: 24px;
   margin-bottom: 12px;

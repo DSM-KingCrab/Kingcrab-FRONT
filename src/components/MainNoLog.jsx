@@ -12,9 +12,9 @@ function MainNoLog() {
       <HeaderNoLog></HeaderNoLog>
       <StyledDiv>
         <Styledsection>
-          <Post></Post>
-          <Post></Post>
-          <Post></Post>
+          <Post/>
+          <Post/>
+          <Post/>
         </Styledsection>
       </StyledDiv>
     </>
