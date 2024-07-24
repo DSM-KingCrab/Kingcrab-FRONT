@@ -2,7 +2,8 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import KingCrabLogoWhite from "../images/Vector.png";
 
-function HeaderNoLog() {
+function HeaderNoLog(props) {
+  const propName = props.Id;
   return (
     <>
       <StyledDiv>
@@ -10,7 +11,7 @@ function HeaderNoLog() {
           <StyledImg src={KingCrabLogoWhite} />
           <StyledP>대게</StyledP>
         </Logo>
-        <StyledP2>로그인</StyledP2>
+        <StyledP2>{props.Id}</StyledP2>
       </StyledDiv>
     </>
   );
