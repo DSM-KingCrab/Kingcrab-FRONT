@@ -11,7 +11,7 @@ function Post() {
         <Id>dodowind_</Id> <PostDate>2024.07.21</PostDate> <LikeDiv><StyledImg src={Heart}/> <Like>30</Like></LikeDiv>
         <MainPost>으아아ㅓ라ㅣㅓㅇ랴ㅐㅁ넝ㄹ다ㅜㅏㄴ어ㅏㅇ러ㅏㅁㅇ너랴ㅐ더ㅏ리ㅜㅏㄴㅇ룬오ㅗㅓㅇㄴ라ㅓㅓ아리ㅓ냐애럳쟈루ㅏ우퍼ㅗ로ㅑㅇ나ㅓ랴ㅏㅐㅇ누ㅏ처ㅡㅏㄴ애로ㅜㅑㅓ아너라ㅓㄴ알아러ㅐㄷ거ㅐ츠러어ㅏㅣ카터ㅏㅇ컨.ㄴ어어라.와죠ㅗㅕ,ㅏㄷ걔ㅐㄹ히ㅏ어ㅏ노ㅓ노ㅓㄴ와ㅑㅇ러ㅐㅑ러ㅏ원어랴ㅐㅣ.ㅇㄹ풀츠ㅓㅑㄱㄷ호ㅜㅕㅑㄷ푸ㅗㅑㅓ랴츠ㅐㅓㅐ트ㅓㅑ대ㅗ퓨ㅕ댜추ㅗㅑㅕㅔ거ㅑ탠랴ㅑㅗㅇ러ㅗ어ㅓㅓ아ㅇ럴/...</MainPost>
         <More>더보기...</More>
-        <Comment type="text" placeholder="댓글 달기"/>
+        <Comment/>
         <SeeComment>댓글 3개 보기...</SeeComment>
       </MainDiv>
     </StyledDiv>
@@ -34,6 +34,7 @@ const More = styled.p`
 const StyledDiv = styled.div`
   width: 1044px;
   height: 320px;
+  margin-bottom: 20px;
 `;
 const Profile = styled.div`
   width: 80px;
@@ -66,15 +67,17 @@ const PostDate = styled.p`
 const LikeDiv = styled.div`
   float: right;
   margin-right: 12px;
+  width: 71px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
 `
 const Like = styled.p`
-  float: right;
-  display: inline;
-  left: 538px;
   font-size: 24px;
   font-weight: bold;
   color: ${theme.color.main[500]};
-  margin: 3px 4px 4px 0;
+  margin-right: 4px;
 `
 const StyledImg = styled.img`
   width: 36px;
