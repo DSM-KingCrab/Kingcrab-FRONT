@@ -1,14 +1,14 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
-import Heart from "../images/ph_heart-fill.png"
 import Comment from "./comentComp";
+import LikeComp from "./LikeComp";
 
 function Post() {
   return (
     <StyledDiv>
       <Profile />
       <MainDiv>
-        <Id>dodowind_</Id> <PostDate>2024.07.21</PostDate> <LikeDiv><StyledImg src={Heart}/> <Like>30</Like></LikeDiv>
+        <Id>dodowind_</Id> <PostDate>2024.07.21</PostDate> <LikeComp/>
         <MainPost>으아아ㅓ라ㅣㅓㅇ랴ㅐㅁ넝ㄹ다ㅜㅏㄴ어ㅏㅇ러ㅏㅁㅇ너랴ㅐ더ㅏ리ㅜㅏㄴㅇ룬오ㅗㅓㅇㄴ라ㅓㅓ아리ㅓ냐애럳쟈루ㅏ우퍼ㅗ로ㅑㅇ나ㅓ랴ㅏㅐㅇ누ㅏ처ㅡㅏㄴ애로ㅜㅑㅓ아너라ㅓㄴ알아러ㅐㄷ거ㅐ츠러어ㅏㅣ카터ㅏㅇ컨.ㄴ어어라.와죠ㅗㅕ,ㅏㄷ걔ㅐㄹ히ㅏ어ㅏ노ㅓ노ㅓㄴ와ㅑㅇ러ㅐㅑ러ㅏ원어랴ㅐㅣ.ㅇㄹ풀츠ㅓㅑㄱㄷ호ㅜㅕㅑㄷ푸ㅗㅑㅓ랴츠ㅐㅓㅐ트ㅓㅑ대ㅗ퓨ㅕ댜추ㅗㅑㅕㅔ거ㅑ탠랴ㅑㅗㅇ러ㅗ어ㅓㅓ아ㅇ럴/...</MainPost>
         <More>더보기...</More>
         <Comment/>
@@ -64,27 +64,6 @@ const PostDate = styled.p`
   margin-top: 9px;
   color: ${theme.color.main[500]};
 `;
-const LikeDiv = styled.div`
-  float: right;
-  margin-right: 12px;
-  width: 71px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-`
-const Like = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  color: ${theme.color.main[500]};
-  margin-right: 4px;
-`
-const StyledImg = styled.img`
-  width: 36px;
-  height: 36px;
-  display: inline;
-  float: right;
-`
 const MainPost = styled.div`
   width: 940px;
   height: 84px;
