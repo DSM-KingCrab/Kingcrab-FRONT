@@ -2,8 +2,6 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 
 function Input(props) {
-  const propName = props.placeholder;
-  const propLabel = props.label;
   return (
     <>
       <StyledP>{props.label}</StyledP>
@@ -22,6 +20,7 @@ const StyledInput = styled.input`
     color: ${theme.color.gray[500]};
     font-size: 18px;
   }
+  font-size: 18px;
   outline: none;
 `;
 const StyledP = styled.p`

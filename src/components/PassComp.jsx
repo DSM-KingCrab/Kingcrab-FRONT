@@ -3,8 +3,6 @@ import styled from "styled-components";
 import eyeImg from "../images/mdi_eye.png";
 
 function Password(props) {
-  const propName = props.placeholder;
-  const propLabel = props.label;
   return (
     <>
       <StyledP>{props.label}</StyledP>
@@ -36,6 +34,7 @@ const StyledInput = styled.input`
     color: ${theme.color.gray[500]};
     font-size: 18px;
   }
+  font: 18px;
   outline: none;
   border: none;
   margin-top: 13px;

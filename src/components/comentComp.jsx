@@ -21,6 +21,8 @@ const StyledComment = styled.input`
     font-size: 20px;
     line-height: 24px;
   }
+  font-size: 20px;
+  color: black;
 `
 
 export default Comment;
