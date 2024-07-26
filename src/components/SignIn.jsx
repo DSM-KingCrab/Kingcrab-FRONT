@@ -5,7 +5,7 @@ import KingCrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
 import { theme } from "../styles/theme";
 import Password from "./PassComp";
 
-function SignIn() {
+const SignIn = () => {
   return (
     <StyledDiv>
       <StyledSection>
@@ -57,13 +57,6 @@ const StyledH11 = styled.span`
   color: ${theme.color.black};
   display: flex;
   align-self: center;
-`;
-const StyledP = styled.p`
-  display: flex;
-  justify-content: flex-start;
-  font-size: 24px;
-  margin-bottom: 12px;
-  margin-top: 32px;
 `;
 const StyledP2 = styled.p`
   font-size: 16px;
