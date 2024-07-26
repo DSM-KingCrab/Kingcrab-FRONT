@@ -2,7 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import Heart from "../images/Smallheart.png"
 
-function SmallLike() {
+const SmallLike = () => {
   return (
     <LikeDiv>
       <LikeNum>30</LikeNum>

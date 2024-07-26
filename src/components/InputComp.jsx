@@ -1,7 +1,7 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-function Input(props) {
+const Input = (props) => {
   return (
     <>
       <StyledP>{props.label}</StyledP>

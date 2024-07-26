@@ -2,25 +2,23 @@ import styled from "styled-components";
 import { theme } from "../styles/theme";
 import SmallLike from "./SmallLike";
 
-function InfoComp() {
+const InfoComp = () => {
   return (
     <MainDiv>
-      <SubDiv>
+      <div>
         <StyledP>작성자</StyledP>
         <StyledHr/>
         <StyledP>dodowind_</StyledP>
-      </SubDiv>
-      <SubDiv>
+      </div>
+      <div>
         <StyledP>작성일</StyledP>
         <StyledHr/>
         <StyledP>2024.07.07</StyledP>
-      </SubDiv>
+      </div>
       <SmallLike/>
     </MainDiv>
   );
 }
-
-const SubDiv = styled.div``
 
 const StyledHr = styled.div`
   border-left: 2px solid ${theme.color.gray[300]};

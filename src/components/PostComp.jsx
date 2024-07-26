@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Comment from "./comentComp";
 import LikeComp from "./LikeComp";
 
-function Post() {
+const Post = () => {
   return (
     <StyledDiv>
       <Profile />

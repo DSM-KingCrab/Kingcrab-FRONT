@@ -2,7 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import BlankHeart from "../images/octicon_heart-16.png"
 
-function NoLikeComp() {
+const NoLikeComp = () => {
   return (
     <LikeDiv>
       <LikeNum>30</LikeNum>

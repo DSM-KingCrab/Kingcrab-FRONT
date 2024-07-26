@@ -1,12 +1,9 @@
 import React from "react";
-import Header from "./HeaderCompLog";
 import styled from "styled-components";
-import { theme } from "../styles/theme";
 import HeaderNoLog from "./HeaderCompNoLog";
-import Comment from "./comentComp";
 import Post from "./PostComp";
 
-function MainNoLog() {
+const MainNoLog = () => {
   return (
     <>
       <HeaderNoLog></HeaderNoLog>
