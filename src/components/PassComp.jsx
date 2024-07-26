@@ -1,18 +1,36 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
-import eyeImg from "../images/mdi_eye.png";
+import openEye from "../images/mdi_eye.png";
+import closeEye from "../images/mdi_eye-off.png"
+import { useState } from "react";
+const Password = (props) => {
+  const [pwType, setPwType] = useState({
+    type: "password",
+    visible: false,
+  });
 
-function Password(props) {
+  const handlePasswordType = () => {
+    setPwType(() => {
+      if (!pwType.visible) {
+        return { type: "text", visible: true };
+      } else {
+        return { type: "password", visible: false };
+      }
+    });
+  };
+
   return (
     <>
       <StyledP>{props.label}</StyledP>
       <InputBox>
-        <StyledInput type="password" placeholder={props.placeholder} />
-        <StyledImg src={eyeImg} />
+        <StyledInput type={pwType.type} placeholder={props.placeholder} />
+        <StyledSpan onClick={handlePasswordType}>
+          {pwType.visible ? <img src={openEye} alt="비밀번호 보이기"/> : <img src={closeEye} alt="비밀번호 숨기기"/>}
+        </StyledSpan>
       </InputBox>
     </>
   );
-}
+};
 
 const StyledP = styled.p`
   display: flex;
@@ -34,7 +52,7 @@ const StyledInput = styled.input`
     color: ${theme.color.gray[500]};
     font-size: 18px;
   }
-  font: 18px;
+  font-size: 18px;
   outline: none;
   border: none;
   margin-top: 13px;
@@ -44,7 +62,7 @@ const StyledInput = styled.input`
   width: 500px;
 `;
 
-const StyledImg = styled.img`
+const StyledSpan = styled.span`
   width: 30px;
   height: 30px;
   float: right;
