@@ -1,25 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../styles/theme";
 import HeaderLog from "./HeaderCompLog";
 import InfoComp from "./InfoComp";
+import Title from "./TitleComp";
 
-
-function ViewPost() {
+const ViewPost = () => {
   return (
     <>
       <HeaderLog />
-      <MainDiv>
-        <InfoComp />
-      </MainDiv>
+      <StyledSpan>
+        <MainDiv>
+          <InfoComp />
+          <Title />
+        </MainDiv>
+      </StyledSpan>
     </>
   );
-}
+};
 
-const MainDiv = styled.div`
+const StyledSpan = styled.span`
   display: flex;
   justify-content: center;
+`;
+const MainDiv = styled.div`
+  width: 1044px;
+  display: flex;
+  justify-self: center;
+  flex-wrap: wrap;
   margin-top: 36px;
-`
+`;
 
 export default ViewPost;
