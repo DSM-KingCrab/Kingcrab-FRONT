@@ -2,7 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import KingCrabLogoWhite from "../images/Vector.png";
 
-function HeaderNoLog() {
+const HeaderNoLog = () => {
   return (
     <>
       <StyledDiv>

@@ -2,8 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import KingCrabLogoWhite from "../images/Vector.png";
 
-function HeaderNoLog(props) {
-  const propName = props.Id;
+const HeaderLog = (props) => {
   return (
     <>
       <StyledDiv>
@@ -53,4 +52,4 @@ const StyledP2 = styled.p`
   line-height: 38px;
 `;
 
-export default HeaderNoLog;
+export default HeaderLog;

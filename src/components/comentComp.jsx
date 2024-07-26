@@ -1,7 +1,7 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-function Comment() {
+const Comment = () => {
   return(
     <>
       <StyledComment type="text" placeholder="댓글 달기"/>
