@@ -14,7 +14,10 @@ const MainDiv = styled.div`
   border-bottom: 2px solid ${theme.color.gray[300]};
   font-size: 16px;
   padding: 24px 72px 0 72px;
-  overflow: scroll;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export default Detail;
