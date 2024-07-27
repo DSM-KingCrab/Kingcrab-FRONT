@@ -5,21 +5,26 @@ import SmallLike from "./SmallLike";
 const InfoComp = () => {
   return (
     <MainDiv>
-      <div>
+      <StyledSpan>
         <StyledP>작성자</StyledP>
         <StyledHr/>
         <StyledP>dodowind_</StyledP>
-      </div>
-      <div>
+      </StyledSpan>
+      <StyledSpan >
         <StyledP>작성일</StyledP>
         <StyledHr/>
         <StyledP>2024.07.07</StyledP>
-      </div>
+      </StyledSpan>
       <SmallLike/>
     </MainDiv>
   );
 }
 
+const StyledSpan = styled.span`
+  height: 28px;
+  display: flex;
+  align-items: center;
+`
 const StyledHr = styled.div`
   border-left: 2px solid ${theme.color.gray[300]};
   width: 0;
@@ -42,8 +47,9 @@ const MainDiv = styled.div`
   border-top: 2px solid ${theme.color.gray[300]};
   border-bottom: 2px solid ${theme.color.gray[300]};
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  padding-left: 0 149px 0 150px;
 `;
 
 export default InfoComp;

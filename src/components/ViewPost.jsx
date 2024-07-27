@@ -3,6 +3,9 @@ import styled from "styled-components";
 import HeaderLog from "./HeaderCompLog";
 import InfoComp from "./InfoComp";
 import Title from "./TitleComp";
+import Detail from "./Detail";
+import Comment from "./comentComp";
+import DtComment from "./DtComment";
 
 const ViewPost = () => {
   return (
@@ -12,12 +15,24 @@ const ViewPost = () => {
         <MainDiv>
           <InfoComp />
           <Title />
+          <Detail />
+          <CommentSection>
+            <Comment />
+            <DtComment Id="bbyongun_"/>
+          </CommentSection>
         </MainDiv>
       </StyledSpan>
     </>
   );
 };
 
+const CommentSection = styled.section`
+  width: 1044px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+`;
 const StyledSpan = styled.span`
   display: flex;
   justify-content: center;
