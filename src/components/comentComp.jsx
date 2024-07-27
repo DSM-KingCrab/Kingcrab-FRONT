@@ -11,7 +11,7 @@ const Comment = () => {
 
 const StyledComment = styled.input`
   padding: 12px 16px;
-  width: 940px;
+  width: 100%;
   height: 48px;
   border: none;
   border-radius: 10px;
@@ -23,6 +23,7 @@ const StyledComment = styled.input`
   }
   font-size: 20px;
   color: black;
+  outline: none;
 `
 
 export default Comment;
