@@ -1,15 +1,25 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
+import LikeComp from "./LikeComp";
 
 const DtComment = (props) => {
   return (
     <MainDiv>
       <StyledP>{props.Id}</StyledP>
       <StyledDate>2024.7.28</StyledDate>
+      <LikeComp/>
+      <Contents>엄</Contents>
+
     </MainDiv>
   );
 };
 
+const Contents = styled.p`
+  display: block;
+  font-size: 20px;
+  font-weight: lighter;
+  margin: 12px 0 9px 0;
+`
 const StyledP = styled.p`
   font-size: 24px;
   font-weight: bold;
