@@ -73,8 +73,8 @@ const Body = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 50px;
-  margin: 252px 0px 0px 0px;
-  padding: 39px 0px 0px 0px;
+  margin-top: 252px;
+  padding-top: 39px;
 `;
 
 const Circle = styled.img`
@@ -106,7 +106,7 @@ const Input = styled.div`
     border: 1px solid ${theme.color.gray[700]};
   }
   & p {
-    margin: 0px 0px 10px 0px;
+    margin-bottom: 10px;
     font-size: 32px;
     font-weight: bold;
     display: flex;

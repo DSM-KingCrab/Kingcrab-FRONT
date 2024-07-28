@@ -50,7 +50,7 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 const StyledImage = styled.img`
-  margin: 60px 0px 0px 0px;
+  margin-top: 60px;
   width: 200px;
   height: 200px;
 `;
@@ -72,7 +72,7 @@ const Body = styled.div`
 `;
 
 const H1 = styled.div`
-  margin: 0px 0px 50px 0px;
+  margin-bottom: 50px;
 `;
 
 const Span = styled.div`
@@ -104,7 +104,7 @@ const Password = styled.div`
 `;
 
 const Id = styled.div`
-  margin: 0px 0px 28px 0px;
+  margin-bottom: 28px;
 `;
 
 const LargeButton = styled.div`

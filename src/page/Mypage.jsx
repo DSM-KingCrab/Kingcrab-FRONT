@@ -17,7 +17,6 @@ const MyPage = () => {
       <StyledDiv>
         <Body>
           <img src={Write} alt="수정" width={48} height={48} />
-
           <Circle>+</Circle>
           <h1>dodowind_</h1>
         </Body>
