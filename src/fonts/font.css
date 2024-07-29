@@ -1,0 +1,22 @@
+@font-face{
+  font-family: "Wanted Sans KR";
+  font-style: normal;
+  src: url("./WantedSans-Regular.woff") format("woff");
+}
+@font-face{
+  font-family: "Wanted Sans KR";
+  font-style: normal;
+  src: url("./WantedSans-Medium.woff") format("woff");
+}
+@font-face{
+  font-family: "Wanted Sans KR";
+  font-style: normal;
+  src: url("./WantedSans-SemiBold.woff") format("woff");
+}
+
+*{
+  font-family: "Wanted Sans KR";
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}

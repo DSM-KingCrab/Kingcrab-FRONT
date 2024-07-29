@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Test from "./page/test";
+import InputContainer from "./components/InputContainer";
+import "./fonts/font.css"
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   
       <BrowserRouter>
         <Routes>
-          <Route path="/test" element={<Test />} />
+          <Route path="/Test" element={<InputContainer/>}/>
         </Routes>
       </BrowserRouter>
  

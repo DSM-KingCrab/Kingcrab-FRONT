@@ -4,6 +4,7 @@ export const theme = {
     white: "#fffffff",
 
     main: {
+<<<<<<< HEAD
       50: "#ffe6ea",
       100: "#ffc1cc",
       200: "#ff97aa",
@@ -13,6 +14,17 @@ export const theme = {
       600: "#ff2a4d",
       700: "#ff2343",
       800: "#ff1d3a"
+=======
+      50: "#FFE6EA",
+      100: "#FFC1CC",
+      200: "#FF97AA",
+      300: "#FF6D87",
+      400: "#FF4E6E",
+      500: "#FF2F54",
+      600: "#FF2A4D",
+      700: "#FF2343",
+      800: "#FF1D3A",
+>>>>>>> origin/picture/input-컴포넌트
     },
     gray: {
       50: "#f1f1f2",
