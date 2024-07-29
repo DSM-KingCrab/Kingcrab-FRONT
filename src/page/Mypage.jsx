@@ -56,8 +56,8 @@ const Body = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 16px;
-  margin: 252px 0px 0px 0px;
-  padding: 39px 0px 0px 0px;
+  margin-top: 252px;
+  padding-top: 39px;
   font-size: 18px;
 `;
 
