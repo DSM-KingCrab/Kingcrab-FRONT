@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderLog from "./HeaderCompLog";
-import InfoComp from "./InfoComp";
-import Title from "./TitleComp";
-import Detail from "./Detail";
-import Comment from "./comentComp";
-import DtComment from "./DtComment";
+import HeaderLog from "../components/HeaderCompLog";
+import InfoComp from "../components/InfoComp";
+import Title from "../components/TitleComp";
+import Detail from "../components/Detail";
+import Comment from "../components/comentComp";
+import DtComment from "../components/DtComment";
+
 
 const ViewPost = () => {
   return (
@@ -17,7 +18,8 @@ const ViewPost = () => {
           <Title />
           <Detail />
           <CommentSection>
-            <Comment />
+            <Comment placeholder="댓글 달기"/>
+            <DtComment Id="bbyongun_"/>
             <DtComment Id="bbyongun_"/>
           </CommentSection>
         </MainDiv>
@@ -32,6 +34,7 @@ const CommentSection = styled.section`
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  flex-wrap: wrap;
 `;
 const StyledSpan = styled.span`
   display: flex;

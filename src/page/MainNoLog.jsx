@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderNoLog from "./HeaderCompNoLog";
-import Post from "./PostComp";
+import HeaderNoLog from "../components/HeaderCompNoLog";
+import Post from "../components/PostComp";
 
 const MainNoLog = () => {
   return (
