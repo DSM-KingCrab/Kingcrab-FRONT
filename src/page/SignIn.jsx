@@ -18,14 +18,22 @@ const SignIn = () => {
           </StyledH11>
         </StyledDiv>
         <Input label="아이디" type="text" placeholder="6자 이상 작성하세요" />
-        <Password label="비밀번호" type="text" placeholder="비밀번호를 입력하세요" />
+        <Password
+          label="비밀번호"
+          type="text"
+          placeholder="비밀번호를 입력하세요"
+        />
         <StyledP2>알파벳 소문자, 대문자, 특수문자 포함 8자 이상</StyledP2>
-        <Password label="비밀번호 확인" type="text" placeholder="비밀번호를 한 번 더 입력하세요" />
+        <Password
+          label="비밀번호 확인"
+          type="text"
+          placeholder="비밀번호를 한 번 더 입력하세요"
+        />
         <StyledP2>비밀번호를 정확하게 입력하세요</StyledP2>
       </StyledSection>
     </StyledDiv>
   );
-}
+};
 
 const StyledDiv = styled.div`
   display: flex;

@@ -1,17 +1,23 @@
 import Button, { styled } from "styled-components";
 import { theme } from "../styles/theme";
 
-const ButtonTest = ({ size, children, onClick }) => {
+const Button = ({ size, children, onClick }) => {
   return (
     <>
       {" "}
-      {size === "Small" && <SmallButton onClick={onClick}>{children}</SmallButton>}
-      {size === "Medium" && <MediumButton onClick={onClick}>{children}</MediumButton>}
-      {size === "Large" && <LargeButton onClick={onClick}>{children}</LargeButton>}
+      {size === "Small" && (
+        <SmallButton onClick={onClick}>{children}</SmallButton>
+      )}
+      {size === "Medium" && (
+        <MediumButton onClick={onClick}>{children}</MediumButton>
+      )}
+      {size === "Large" && (
+        <LargeButton onClick={onClick}>{children}</LargeButton>
+      )}
     </>
   );
 };
-export default ButtonTest;
+export default Button;
 
 const SmallButton = styled.div`
   background-color: ${theme.color.main[500]};
