@@ -1,7 +1,7 @@
-import Button, { styled } from "styled-components";
+import { styled } from "styled-components";
 import { theme } from "../styles/theme";
 
-const Button = ({ size, children, onClick }) => {
+const ButtonComp = ({ size, children, onClick }) => {
   return (
     <>
       {" "}
@@ -17,7 +17,7 @@ const Button = ({ size, children, onClick }) => {
     </>
   );
 };
-export default Button;
+export default ButtonComp;
 
 const SmallButton = styled.div`
   background-color: ${theme.color.main[500]};
@@ -49,4 +49,6 @@ const LargeButton = styled.div`
   align-items: center;
   border-radius: 10px;
   color: white;
+  font-size: 24px;
+  font-weight: bold;
 `;
