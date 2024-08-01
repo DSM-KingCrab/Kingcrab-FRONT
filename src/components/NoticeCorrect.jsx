@@ -2,7 +2,7 @@ import styled from "styled-components";
 import CancelComp from "./CancelComp";
 import ConfirmComp from "./ConfirmComp";
 
-const Notice = (props) => {
+const NoticeCorrect = (props) => {
   return (
     <>
       <Main>
@@ -13,7 +13,7 @@ const Notice = (props) => {
         </SmallDiv>
         <Button>
           <CancelComp />
-          <ConfirmComp text="삭제" />
+          <ConfirmComp text="수정" />
         </Button>
       </Main>
     </>
@@ -60,4 +60,4 @@ const Main = styled.div`
   padding: 42px 0 62px 0;
 `;
 
-export default Notice;
+export default NoticeCorrect;

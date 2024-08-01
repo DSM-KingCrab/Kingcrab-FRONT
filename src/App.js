@@ -6,6 +6,7 @@ import ViewPost from "./page/ViewPost";
 import Write from "./page/Write";
 import Correction from "./page/Correction";
 import ConfirmDelete from "./page/ConfirmDelete";
+import ConfirmCorrect from "./page/ConfirmCorrect";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/Write" element={<Write/>} />
         <Route path="/Correction" element={<Correction/>} />
         <Route path="/ConfirmDelete" element={<ConfirmDelete/>} />
+        <Route path="/ConfirmCorrect" element={<ConfirmCorrect/>} />
       </Routes>
     </BrowserRouter>
   );
