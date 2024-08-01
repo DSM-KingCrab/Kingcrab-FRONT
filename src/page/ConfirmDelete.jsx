@@ -6,14 +6,14 @@ import Title from "../components/TitleComp";
 import Detail from "../components/Detail";
 import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
-import { theme } from "../styles/theme";
+import Notice from "../components/Notice";
 
 const ConfirmDelete = () => {
   return (
     <>
       <Cover>
-        {" "}
-        <Notice></Notice>
+        <Notice title="게시물을 삭제하시겠습니까?"
+        describe=/>
       </Cover>
       <HeaderLog />
       <StyledSpan>
@@ -32,28 +32,16 @@ const ConfirmDelete = () => {
   );
 };
 
-const Notice = styled.div`
-  width: 560px;
-  height: 336px;
-  border-radius: 20px;
-  z-index: 100;
-  position: absolute;
-  background-color: white;
-  display: flex;
-  opacity: 1;
-`;
 const Cover = styled.div`
-  box-shadow: ${theme.color.gray[400]} 0 0 0 9999px;
-  z-index: 5;
+  background-color: rgba( 157, 156, 160, 0.5 );
   position: fixed;
-  opacity: 50%;
   width: 100%;
   height: 100%;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 const CommentSection = styled.section`
   width: 1044px;
   display: flex;
@@ -65,6 +53,7 @@ const CommentSection = styled.section`
 const StyledSpan = styled.span`
   display: flex;
   justify-content: center;
+  backdrop-filter: blur(10px);
 `;
 const MainDiv = styled.div`
   width: 1044px;
