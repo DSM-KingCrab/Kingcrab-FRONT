@@ -11,7 +11,10 @@ import { theme } from "../styles/theme";
 const ConfirmDelete = () => {
   return (
     <>
-      <Cover />
+      <Cover>
+        {" "}
+        <Notice></Notice>
+      </Cover>
       <HeaderLog />
       <StyledSpan>
         <MainDiv>
@@ -29,11 +32,26 @@ const ConfirmDelete = () => {
   );
 };
 
+const Notice = styled.div`
+  width: 560px;
+  height: 336px;
+  border-radius: 20px;
+  z-index: 100;
+  position: absolute;
+  background-color: white;
+  display: flex;
+  opacity: 1;
+`;
 const Cover = styled.div`
   box-shadow: ${theme.color.gray[400]} 0 0 0 9999px;
   z-index: 5;
   position: fixed;
   opacity: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CommentSection = styled.section`
