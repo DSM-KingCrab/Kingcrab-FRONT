@@ -28,6 +28,7 @@ const SmallButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: wanted;
 `;
 
 const MediumButton = styled.div`
@@ -38,6 +39,7 @@ const MediumButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: wanted;
 `;
 
 const LargeButton = styled.div`
@@ -51,4 +53,5 @@ const LargeButton = styled.div`
   color: white;
   font-size: 24px;
   font-weight: bold;
+  font-family: wanted;
 `;
