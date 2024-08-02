@@ -7,18 +7,20 @@ import Write from "./page/Write";
 import Correction from "./page/Correction";
 import ConfirmDelete from "./page/ConfirmDelete";
 import ConfirmCorrect from "./page/ConfirmCorrect";
+import MainLog from "./page/MainLog";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/Main" element={<MainNoLog />} />
+        <Route path="/MainNoLog" element={<MainNoLog />} />
         <Route path="/ViewPost" element={<ViewPost/>} />
         <Route path="/Write" element={<Write/>} />
         <Route path="/Correction" element={<Correction/>} />
         <Route path="/ConfirmDelete" element={<ConfirmDelete/>} />
         <Route path="/ConfirmCorrect" element={<ConfirmCorrect/>} />
+        <Route path="/MainLog" element={<MainLog/>} />
       </Routes>
     </BrowserRouter>
   );
