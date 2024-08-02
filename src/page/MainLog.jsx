@@ -3,7 +3,7 @@ import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { theme } from "../styles/theme";
-import plusImg from "../images/ic_round-plus.png"
+import plusImg from "../images/ic_round-plus.png";
 
 const MainLog = () => {
   return (
@@ -19,7 +19,7 @@ const MainLog = () => {
       </StyledDiv>
       <Plus>
         <AddPost>
-          <StyledImg src={plusImg} alt="추가"/>
+          <StyledImg src={plusImg} alt="추가" />
         </AddPost>
       </Plus>
     </>
@@ -29,7 +29,7 @@ const MainLog = () => {
 const StyledImg = styled.img`
   width: 100px;
   height: 100px;
-`
+`;
 const Plus = styled.div`
   display: flex;
   flex-direction: column-reverse;
