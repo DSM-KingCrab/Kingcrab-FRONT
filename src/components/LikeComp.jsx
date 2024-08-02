@@ -1,33 +1,62 @@
-import { theme } from "../styles/theme";
 import styled from "styled-components";
-import Heart from "../images/ph_heart-fill.png"
+import React from "react";
+import heartFilled from "../images/ph_heart-fill.png";
+import heartBlank from "../images/octicon_heart-16.png";
 
-const LikeComp = () => {
-  return (
-    <LikeDiv>
-      <LikeNum>30</LikeNum>
-      <StyledImg src={Heart} />
-    </LikeDiv>
-  );
+class LikeComp extends React.Component {
+  state = {
+    isChecked: false,
+  };
+
+  onClick = () => {
+    this.state.isChecked
+      ? this.setState({
+          isChecked: false,
+        })
+      : this.setState({
+          isChecked: true,
+        });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <LikeDiv>
+          {this.state.isChecked ? (
+            <StyledImg1 src={heartFilled} onClick={this.onClick} />
+          ) : (
+            <StyledImg2
+              src={heartBlank}
+              style={{ fontSize: "36px" }}
+              onClick={this.onClick}
+            />
+          )}
+        </LikeDiv>
+      </React.Fragment>
+    );
+  }
 }
 
 const LikeDiv = styled.div`
   float: right;
   margin-right: 12px;
-  width: 71px;
-  height: 36px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 `;
-const LikeNum = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  color: ${theme.color.main[500]};
-  margin-right: 4px;
+const StyledImg1 = styled.img`
+  width: 32px;
+  height: 32px;
+  display: inline;
+  float: right;
+  cursor: pointer;
+  transition: transform 300ms ease;
+  &:hover{
+    transform: scale(1.1);
+  }
 `;
-const StyledImg = styled.img`
-  width: 36px;
-  height: 36px;
+const StyledImg2 = styled.img`
+  width: 32px;
+  height: 32px;
   display: inline;
   float: right;
 `;
