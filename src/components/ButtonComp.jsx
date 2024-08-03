@@ -1,17 +1,23 @@
-import Button, { styled } from "styled-components";
+import { styled } from "styled-components";
 import { theme } from "../styles/theme";
 
-const ButtonTest = ({ size, children, onClick }) => {
+const ButtonComp = ({ size, children, onClick }) => {
   return (
     <>
       {" "}
-      {size === "Small" && <SmallButton onClick={onClick}>{children}</SmallButton>}
-      {size === "Medium" && <MediumButton onClick={onClick}>{children}</MediumButton>}
-      {size === "Large" && <LargeButton onClick={onClick}>{children}</LargeButton>}
+      {size === "Small" && (
+        <SmallButton onClick={onClick}>{children}</SmallButton>
+      )}
+      {size === "Medium" && (
+        <MediumButton onClick={onClick}>{children}</MediumButton>
+      )}
+      {size === "Large" && (
+        <LargeButton onClick={onClick}>{children}</LargeButton>
+      )}
     </>
   );
 };
-export default ButtonTest;
+export default ButtonComp;
 
 const SmallButton = styled.div`
   background-color: ${theme.color.main[500]};
@@ -22,6 +28,7 @@ const SmallButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: wanted;
 `;
 
 const MediumButton = styled.div`
@@ -32,6 +39,7 @@ const MediumButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: wanted;
 `;
 
 const LargeButton = styled.div`
@@ -43,4 +51,7 @@ const LargeButton = styled.div`
   align-items: center;
   border-radius: 10px;
   color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: wanted;
 `;
