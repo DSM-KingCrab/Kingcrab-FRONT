@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import SmallLike from "./SmallLike";
+import LikeComp from "./LikeComp";
 
 const InfoComp = () => {
   return (
@@ -15,7 +15,7 @@ const InfoComp = () => {
         <StyledHr/>
         <StyledP>2024.07.07</StyledP>
       </StyledSpan>
-      <SmallLike/>
+      <LikeComp/>
     </MainDiv>
   );
 }
