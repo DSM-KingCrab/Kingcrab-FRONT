@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import heartFilled from "../images/ph_heart-fill.png";
 import heartBlank from "../images/octicon_heart-16.png";
+<<<<<<< Updated upstream
 import React from "react";
 import { theme } from "../styles/theme";
+=======
+import { theme } from "../styles/theme";
+import React, { useState } from "react";
+>>>>>>> Stashed changes
 
 class LikeComp extends React.Component {
   state = {
@@ -23,6 +28,11 @@ class LikeComp extends React.Component {
   };
 
   render() {
+
+    const [color, setColor] = useState(" ")
+    const handleColor = () => {
+      setColor(color )
+    }
 
     return (
       <React.Fragment>
