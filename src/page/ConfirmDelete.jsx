@@ -20,16 +20,17 @@ const ConfirmDelete = () => {
       </Cover>
       <HeaderLog />
       <StyledSpan>
-        <MainDiv>
-          <InfoComp />
-          <Title />
-          <Detail />
-          <CommentSection>
-            <Comment placeholder="댓글 달기" />
-            <DtComment Id="bbyongun_" />
-            <DtComment Id="bbyongun_" />
-          </CommentSection>
-        </MainDiv>
+          <MainDiv>
+            <InfoComp />
+            <Title />
+            <Detail />
+            <CommentSection>
+              <Comment placeholder="댓글 달기" />
+              <DtComment Id="bbyongun_" />
+              <DtComment Id="bbyongun_" />
+            </CommentSection>
+          </MainDiv>
+        
       </StyledSpan>
     </>
   );

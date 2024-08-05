@@ -1,11 +1,14 @@
 import React from "react";
-import ButtonTest from "../components/button";
+import ButtonTest from "../components/ButtonComp";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingCrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
-import Eyes from "../images/mdi_eye.png";
+import KingCrabLogo from "../images/Vector.png";
+import "../fonts/font.css";
+import Password from "../components/Pass";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const router = useNavigate();
   return (
     <StyledDiv>
       <StyledImage src={KingCrabLogo} alt="대게 로고" />
@@ -23,18 +26,25 @@ const Login = () => {
             <p>아이디</p>
             <input type="text" placeholder="아이디를 입력하세요" />
           </Id>
-          <p>비밀번호</p>
-          <input type="text" placeholder="비밀번호를 입력하세요" />
-          <Password src={Eyes} alt="비밀번호" />
         </Input>
+        <Password label="비밀번호" type="password" placeholder="비밀번호를 입력하세요" />
         <LargeButton>
-          <ButtonTest onClick={() => {}} size={"Large"}>
+          <ButtonTest
+            onClick={() => {
+              router("/main");
+            }}
+            size={"Large"}
+          >
             로그인
           </ButtonTest>
         </LargeButton>
         <SignUp>
           <b>
-            계정이 없으신가요? 대게에 <Span>회원가입</Span>하세요.
+            계정이 없으신가요? 대게에
+            <a href="/SignIn" style={{ textDecoration: "none" }}>
+              <Span>회원가입</Span>
+            </a>
+            하세요.
           </b>
         </SignUp>
       </Body>
@@ -79,6 +89,7 @@ const Span = styled.div`
   color: ${theme.color.main[500]};
   display: inline;
 `;
+
 const Input = styled.div`
   & input {
     width: 600px;
@@ -95,12 +106,6 @@ const Input = styled.div`
     display: flex;
     justify-content: flex-start;
   }
-`;
-
-const Password = styled.div`
-  width: 30px;
-  height: 30px;
-  color: ${theme.color.gray[100]};
 `;
 
 const Id = styled.div`
