@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
+import KingKrabLogo from "../images/Vector.png";
 import Write from "../images/jam_write-f.png";
 
 const MyPage = () => {
@@ -16,8 +16,15 @@ const MyPage = () => {
       </Header>
       <StyledDiv>
         <Body>
-          <img src={Write} alt="수정" width={48} height={48} />
-          <Circle>+</Circle>
+          <a href="/Mypage2">
+            <img src={Write} alt="수정" width={48} height={48} />
+          </a>
+          <Circle>
+            <label htmlFor="+">
+              +
+              <input type="file" />
+            </label>
+          </Circle>
           <h1>dodowind_</h1>
         </Body>
       </StyledDiv>
@@ -57,11 +64,14 @@ const Body = styled.div`
   flex-direction: column;
   gap: 16px;
   margin-top: 252px;
-  padding-top: 39px;
   font-size: 18px;
+  & a {
+    align-self: flex-end;
+    margin: 32px 32px 0px 0px;
+  }
 `;
 
-const Circle = styled.div`
+const Circle = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;

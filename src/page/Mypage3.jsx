@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
+import KingKrabLogo from "../images/Vector.png";
 import Write from "../images/jam_write-f.png";
 import Profile from "../images/length-landscape-2011238_1280 1.png";
+import "../fonts/font.css";
 
 const MyPage3 = () => {
   return (
@@ -17,7 +18,11 @@ const MyPage3 = () => {
       </Header>
       <StyledDiv>
         <Body>
-          <img src={Write} alt="수정" width={48} height={48} />
+          <Img>
+            <a href="/Mypage4">
+              <img src={Write} alt="수정" width={48} height={48} />
+            </a>
+          </Img>
           <Circle img src={Profile} alt="프로필 사진" />
           <h1>dodowind_</h1>
         </Body>
@@ -58,8 +63,12 @@ const Body = styled.div`
   flex-direction: column;
   gap: 16px;
   margin-top: 252px;
-  padding-top: 39px;
   font-size: 18px;
+`;
+
+const Img = styled.div`
+  align-self: flex-end;
+  margin: 32px 32px 0px 0px;
 `;
 
 const Circle = styled.img`

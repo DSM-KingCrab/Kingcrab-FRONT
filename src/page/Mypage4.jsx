@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
-import Camera from "../images/Vector.png";
-import ButtonTest from "../components/button";
+import KingKrabLogo from "../images/Vector.png";
+import Camera from "../images/Camera.png";
+import ButtonTest from "../components/ButtonComp";
 import Profile from "../images/length-landscape-2011238_1280 1.png";
+import "../fonts/font.css";
 
 const MyPage4 = () => {
   return (
@@ -18,13 +19,17 @@ const MyPage4 = () => {
       </Header>
       <StyledDiv>
         <Body>
-          <Circle img src={Profile} alt="프로필 사진" />
-          <CameraImg img src={Camera} alt="프로필" width={100} height={88} />
-          <SmallButton>
-            <ButtonTest onClick={() => {}} size={"Small"}>
-              저장
-            </ButtonTest>
-          </SmallButton>
+          <Div>
+            <Circle img src={Profile} alt="프로필 사진" />
+            <CameraImg img src={Camera} alt="프로필" width={100} height={88} />
+          </Div>
+          <DivDiv>
+            <SmallButton>
+              <ButtonTest onClick={() => {}} size={"Small"}>
+                저장
+              </ButtonTest>
+            </SmallButton>
+          </DivDiv>
           <Input>
             <Id>
               <p>아이디</p>
@@ -86,12 +91,24 @@ const Circle = styled.img`
   height: 218px;
   border-radius: 50%;
   opacity: 0.5;
+  position: relative;
+  margin-bottom: 80px;
 `;
 
-const CameraImg = styled.img``;
+const CameraImg = styled.img`
+  position: absolute;
+  top: 33%;
+  left: 48%;
+`;
 
 const SmallButton = styled.div`
   font-size: 24px;
+  display: flex;
+  align-self: flex-end;
+  margin-right: 32px;
+  position: relative;
+  bottom: 10px;
+  left: 320%;
 `;
 
 const Id = styled.div``;
@@ -114,4 +131,8 @@ const Input = styled.div`
   }
 `;
 
+const Div = styled.div``;
+const DivDiv = styled.div`
+  position: absolute;
+`;
 export default MyPage4;

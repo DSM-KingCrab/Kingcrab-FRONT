@@ -17,3 +17,11 @@ instance.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+/*const result = await instance.post(`${baseURL}/login`,{
+  useName: SharedArray,
+  password: asdf
+})
+console.log(result);
+return result.data.accessToken;
+*/

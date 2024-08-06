@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/fluent-emoji-high-contrast_crab.png";
-import Camera from "../images/Vector.png";
-import ButtonTest from "../components/button";
+import KingKrabLogo from "../images/Vector.png";
+import Camera from "../images/Camera.png";
+import ButtonTest from "../components/ButtonComp";
+import "../fonts/font.css";
+import { useNavigate } from "react-router-dom";
 
 const MyPage2 = () => {
+  const router = useNavigate();
   return (
     <All>
       <Header>
@@ -17,14 +20,19 @@ const MyPage2 = () => {
       </Header>
       <StyledDiv>
         <Body>
-          <Circle>
-            <img src={Camera} alt="프로필" width={100} height={88} />
-          </Circle>
           <SmallButton>
-            <ButtonTest onClick={() => {}} size={"Small"}>
+            <ButtonTest
+              onClick={() => {
+                router("/Mypage3");
+              }}
+              size={"Small"}
+            >
               저장
             </ButtonTest>
           </SmallButton>
+          <Circle>
+            <img src={Camera} alt="프로필" width={100} height={88} />
+          </Circle>
           <Input>
             <Id>
               <p>아이디</p>
@@ -89,6 +97,9 @@ const Circle = styled.div`
 
 const SmallButton = styled.div`
   font-size: 24px;
+  align-self: flex-end;
+
+  margin-right: 36px;
 `;
 
 const Id = styled.div``;

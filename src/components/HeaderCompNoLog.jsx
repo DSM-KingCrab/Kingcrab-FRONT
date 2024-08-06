@@ -10,11 +10,13 @@ const HeaderNoLog = () => {
           <StyledImg src={KingCrabLogoWhite} />
           <StyledP>대게</StyledP>
         </Logo>
-        <StyledP2>로그인</StyledP2>
+        <a href="/Login" style={{ textDecoration: "none" }}>
+          <StyledP2>로그인</StyledP2>
+        </a>
       </StyledDiv>
     </>
   );
-}
+};
 
 const Logo = styled.div`
   width: 136px;
