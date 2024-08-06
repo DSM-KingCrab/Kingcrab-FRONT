@@ -5,10 +5,17 @@ const Input = (props) => {
   return (
     <>
       <StyledP>{props.label}</StyledP>
-      <StyledInput type="text" placeholder={props.placeholder} autoFocus/>
+      <StyledInput
+        type="text"
+        placeholder={props.placeholder}
+        name={props.name}
+        value={props.value}
+        onChange={props.onChange}
+        autoFocus
+      />
     </>
   );
-}
+};
 
 const StyledInput = styled.input`
   padding: 16px;
@@ -29,6 +36,6 @@ const StyledP = styled.p`
   font-size: 24px;
   margin-bottom: 12px;
   margin-top: 32px;
-`
+`;
 
 export default Input;

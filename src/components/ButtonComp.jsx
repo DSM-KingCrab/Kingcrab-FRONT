@@ -29,6 +29,7 @@ const SmallButton = styled.div`
   align-items: center;
   color: white;
   font-family: wanted;
+  cursor: pointer;
 `;
 
 const MediumButton = styled.div`
@@ -40,6 +41,7 @@ const MediumButton = styled.div`
   align-items: center;
   color: white;
   font-family: wanted;
+  cursor: pointer;
 `;
 
 const LargeButton = styled.div`
@@ -54,4 +56,5 @@ const LargeButton = styled.div`
   font-size: 24px;
   font-weight: bold;
   font-family: wanted;
+  cursor: pointer;
 `;
