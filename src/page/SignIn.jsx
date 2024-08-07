@@ -1,12 +1,74 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Input from "../components/InputComp";
 import styled from "styled-components";
 import KingCrabLogo from "../images/Krab.png";
 import { theme } from "../styles/theme";
 import Password from "../components/PassComp";
 import ButtonComp from "../components/ButtonComp";
+import axios from "axios";
 
 const SignIn = () => {
+  const [data, setData] = useState({
+    userName: "",
+    password: "",
+  });
+
+  const [passwd, setRepassword] = useState("");
+
+  const onClick = () => {
+    if(IsName === true && IdCheck === true && passwdCheck === true)
+    {
+      axios.post("http://192.168.1.11:8080/signup", data);
+    } else {
+      alert("모든 정보를 정확하게 입력해주세요.");
+    }
+  };
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const handleRepassword = (e) => {
+    const { value } = e.target;
+    setRepassword(value);
+  };
+
+  const IsName = () => {
+    if (data.password === passwd) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const IdCheck = () => {
+    const checkId = /^[a-z0-9_-]{5,20}$/;
+
+    if (checkId.test(data.userName)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const passwdCheck = () => {
+    const checkPasswd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
+
+    if (checkPasswd.test(data.password)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    IsName();
+  }, [passwd, data.password]);
+
   return (
     <StyledDiv>
       <StyledSection>
@@ -18,13 +80,51 @@ const SignIn = () => {
             <p>마고</p> <StyledH1>게</StyledH1>시판에 회원가입 하세요
           </StyledH11>
         </StyledDiv>
-        <Input label="아이디" type="text" placeholder="6자 이상 작성하세요" />
-        <Password label="비밀번호" type="text" placeholder="비밀번호를 입력하세요" />
-        <StyledP2>알파벳 소문자, 대문자, 특수문자 포함 8자 이상</StyledP2>
-        <Password label="비밀번호 확인" type="text" placeholder="비밀번호를 한 번 더 입력하세요" />
-        <StyledP2>비밀번호를 정확하게 입력하세요</StyledP2>
+        <Input
+          label="아이디"
+          type="text"
+          value={data.userName}
+          name="userName"
+          placeholder="아이디를 입력하세요"
+          onChange={handleChange}
+        />
+        {IdCheck() ? (
+          <StyledP2>올바른 아이디 형식입니다.</StyledP2>
+        ) : (
+          <StyledP3>
+            5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.
+          </StyledP3>
+        )}
+        <Password
+          label="비밀번호"
+          type="text"
+          placeholder="비밀번호를 입력하세요"
+          value={data.password}
+          name="password"
+          onChange={handleChange}
+        />
+        {passwdCheck() ? (
+          <StyledP2>올바른 비밀번호 형식입니다.</StyledP2>
+        ) : (
+          <StyledP3>
+            8~16자의 영문 대 소문자, 숫자, 특수문자를 포함하게 작성하세요.
+          </StyledP3>
+        )}
+        <Password
+          label="비밀번호 확인"
+          type="text"
+          placeholder="비밀번호를 한 번 더 입력하세요"
+          value={passwd}
+          name="passwd"
+          onChange={handleRepassword}
+        />
+        {IsName() ? (
+          <StyledP2>비밀번호가 일치합니다</StyledP2>
+        ) : (
+          <StyledP3>비밀번호가 일치하지 않습니다</StyledP3>
+        )}
         <StyledButton>
-          <ButtonComp onClick={() => {}} size={"Large"}>
+          <ButtonComp onClick={onClick} size={"Large"}>
             회원가입
           </ButtonComp>
         </StyledButton>
@@ -71,5 +171,11 @@ const StyledP2 = styled.p`
   font-size: 16px;
   margin-top: 4px;
   margin-left: 4px;
+`;
+const StyledP3 = styled.p`
+  font-size: 16px;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: ${theme.color.main[800]};
 `;
 export default SignIn;
