@@ -6,17 +6,18 @@ import Title from "../components/TitleComp";
 import Detail from "../components/Detail";
 import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
-import Notice from "../components/Notice";
+import NoticeDelete from "../page/NoticeDelete";
+
 
 const ConfirmDelete = () => {
   return (
     <>
       <Cover>
-        <Notice
+        <NoticeDelete
           title="게시물을 삭제하시겠습니까?"
           describe="게시물을 삭제하면 복구할 수 없습니다."
           des="정말로 삭제하시겠습니까?"
-        />
+          />
       </Cover>
       <HeaderLog />
       <StyledSpan>

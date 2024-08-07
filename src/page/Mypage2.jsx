@@ -1,23 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/Vector.png";
 import Camera from "../images/Camera.png";
 import ButtonTest from "../components/ButtonComp";
 import "../fonts/font.css";
 import { useNavigate } from "react-router-dom";
+import HeaderLog from "../components/HeaderCompLog";
 
 const MyPage2 = () => {
   const router = useNavigate();
   return (
     <All>
-      <Header>
-        <Logo>
-          <img src={KingKrabLogo} alt="대게 로고" width={56} height={56} />
-          <p>대게</p>
-        </Logo>
-        <p>dodowind_</p>
-      </Header>
+      <HeaderLog Id="Hi" />
       <StyledDiv>
         <Body>
           <SmallButton>
@@ -31,7 +25,10 @@ const MyPage2 = () => {
             </ButtonTest>
           </SmallButton>
           <Circle>
-            <img src={Camera} alt="프로필" width={100} height={88} />
+            <label htmlFor="Camera">
+              <Camerainput type="file" id="Camera" />
+              <img src={Camera} alt="프로필" width={100} height={88} />
+            </label>
           </Circle>
           <Input>
             <Id>
@@ -45,6 +42,10 @@ const MyPage2 = () => {
   );
 };
 
+const Camerainput = styled.input`
+  display: none;
+`;
+
 const All = styled.div`
   background-color: ${theme.color.gray[100]};
   height: 100dvh;
@@ -55,21 +56,6 @@ const StyledDiv = styled.div`
   height: 420px;
   display: flex;
   justify-content: center;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 40px;
-  font-size: 32px;
-  background-color: ${theme.color.main[100]};
-  color: ${theme.color.white};
-`;
-
-const Logo = styled.div`
-  display: flex;
-  gap: 21px;
-  align-items: center;
 `;
 
 const Body = styled.div`
@@ -98,7 +84,6 @@ const Circle = styled.div`
 const SmallButton = styled.div`
   font-size: 24px;
   align-self: flex-end;
-
   margin-right: 36px;
 `;
 

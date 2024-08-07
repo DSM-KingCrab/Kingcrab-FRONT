@@ -11,7 +11,7 @@ import DtComment from "../components/DtComment";
 const ViewPost = () => {
   return (
     <>
-      <HeaderLog />
+      <HeaderLog Id="Hi"/>
       <StyledSpan>
         <MainDiv>
           <InfoComp />

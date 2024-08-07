@@ -12,10 +12,12 @@ const Title = () => {
         <StyledP>제목제목제목</StyledP>
       </StyledSpan>
       <IconDiv>
-        <a href="/ConfirmDelete">
+      <a href="/ConfirmDelete" style={{ textDecoration: "none" }}>
           <DeleteImg src={Delete} alt="삭제" />
         </a>
-        <WriteImg src={Write} alt="수정" />
+        <a href="/Correction" style={{ textDecoration: "none" }}>
+          <WriteImg src={Write} alt="수정" />
+        </a>
       </IconDiv>
     </MainDiv>
   );

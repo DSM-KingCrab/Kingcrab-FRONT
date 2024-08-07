@@ -1,25 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/Vector.png";
 import Write from "../images/jam_write-f.png";
 import Profile from "../images/length-landscape-2011238_1280 1.png";
 import "../fonts/font.css";
+import HeaderLog from "../components/HeaderCompLog";
 
 const MyPage3 = () => {
   return (
     <>
-      <Header>
-        <Logo>
-          <img src={KingKrabLogo} alt="대게 로고" width={56} height={56} />
-          <p>대게</p>
-        </Logo>
-        <p>dodowind_</p>
-      </Header>
+      <HeaderLog Id="Hi" />
       <StyledDiv>
         <Body>
           <Img>
-            <a href="/Mypage4">
+            <a href="/Mypage4" style={{ textDecoration: "none" }}>
               <img src={Write} alt="수정" width={48} height={48} />
             </a>
           </Img>
@@ -36,21 +30,6 @@ const StyledDiv = styled.div`
   height: 420px;
   display: flex;
   justify-content: center;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 40px;
-  font-size: 32px;
-  background-color: ${theme.color.main[100]};
-  color: ${theme.color.white};
-`;
-
-const Logo = styled.div`
-  display: flex;
-  gap: 21px;
-  align-items: center;
 `;
 
 const Body = styled.div`

@@ -17,8 +17,12 @@ const Write = () => {
           <TitleWrite />
           <Textarea />
           <Buttons>
-            <CancelComp />
-            <ConfirmComp text="완료"/>
+            <a href="/MainLog" style={{ textDecoration: "none" }}>
+              <CancelComp />
+            </a>
+            <a href="/ViewPost" style={{ textDecoration: "none" }}>
+              <ConfirmComp text="완료" />
+            </a>
           </Buttons>
         </MainDiv>
       </StyledDiv>

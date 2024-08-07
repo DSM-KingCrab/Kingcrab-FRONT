@@ -5,15 +5,9 @@ const ButtonComp = ({ size, children, onClick }) => {
   return (
     <>
       {" "}
-      {size === "Small" && (
-        <SmallButton onClick={onClick}>{children}</SmallButton>
-      )}
-      {size === "Medium" && (
-        <MediumButton onClick={onClick}>{children}</MediumButton>
-      )}
-      {size === "Large" && (
-        <LargeButton onClick={onClick}>{children}</LargeButton>
-      )}
+      {size === "Small" && <SmallButton onClick={onClick}>{children}</SmallButton>}
+      {size === "Medium" && <MediumButton onClick={onClick}>{children}</MediumButton>}
+      {size === "Large" && <LargeButton onClick={onClick}>{children}</LargeButton>}
     </>
   );
 };
@@ -28,7 +22,7 @@ const SmallButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: wanted;
+  font-family: "Wanted Sans KR";
 `;
 
 const MediumButton = styled.div`
@@ -39,7 +33,7 @@ const MediumButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: wanted;
+  font-family: "Wanted Sans KR";
 `;
 
 const LargeButton = styled.div`
@@ -53,5 +47,5 @@ const LargeButton = styled.div`
   color: white;
   font-size: 24px;
   font-weight: bold;
-  font-family: wanted;
+  font-family: "Wanted Sans KR";
 `;

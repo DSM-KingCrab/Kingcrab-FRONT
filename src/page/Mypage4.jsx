@@ -1,31 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/Vector.png";
 import Camera from "../images/Camera.png";
 import ButtonTest from "../components/ButtonComp";
 import Profile from "../images/length-landscape-2011238_1280 1.png";
 import "../fonts/font.css";
+import HeaderLog from "../components/HeaderCompLog";
+import { useNavigate } from "react-router-dom";
 
 const MyPage4 = () => {
+  const router = useNavigate();
   return (
     <All>
-      <Header>
-        <Logo>
-          <img src={KingKrabLogo} alt="대게 로고" width={56} height={56} />
-          <p>대게</p>
-        </Logo>
-        <p>dodowind_</p>
-      </Header>
+      <HeaderLog Id="HI" />
       <StyledDiv>
         <Body>
           <Div>
             <Circle img src={Profile} alt="프로필 사진" />
-            <CameraImg img src={Camera} alt="프로필" width={100} height={88} />
+            <label htmlFor="Correction">
+              <Correctioninput type="file" id="Correction" />
+              <CameraImg img src={Camera} alt="프로필" width={100} height={88} />
+            </label>
           </Div>
           <DivDiv>
             <SmallButton>
-              <ButtonTest onClick={() => {}} size={"Small"}>
+              <ButtonTest
+                onClick={() => {
+                  router("/Mypage3");
+                }}
+                size={"Small"}
+              >
                 저장
               </ButtonTest>
             </SmallButton>
@@ -42,6 +46,10 @@ const MyPage4 = () => {
   );
 };
 
+const Correctioninput = styled.input`
+  display: none;
+`;
+
 const All = styled.div`
   background-color: ${theme.color.gray[100]};
   height: 100dvh;
@@ -52,21 +60,6 @@ const StyledDiv = styled.div`
   height: 420px;
   display: flex;
   justify-content: center;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 40px;
-  font-size: 32px;
-  background-color: ${theme.color.main[100]};
-  color: ${theme.color.white};
-`;
-
-const Logo = styled.div`
-  display: flex;
-  gap: 21px;
-  align-items: center;
 `;
 
 const Body = styled.div`
@@ -97,7 +90,7 @@ const Circle = styled.img`
 
 const CameraImg = styled.img`
   position: absolute;
-  top: 33%;
+  top: 35%;
   left: 48%;
 `;
 
@@ -132,7 +125,9 @@ const Input = styled.div`
 `;
 
 const Div = styled.div``;
+
 const DivDiv = styled.div`
   position: absolute;
 `;
+
 export default MyPage4;

@@ -5,8 +5,10 @@ import KingCrabLogo from "../images/Krab.png";
 import { theme } from "../styles/theme";
 import Password from "../components/PassComp";
 import ButtonComp from "../components/ButtonComp";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const router = useNavigate();
   return (
     <StyledDiv>
       <StyledSection>
@@ -24,7 +26,12 @@ const SignIn = () => {
         <Password label="비밀번호 확인" type="text" placeholder="비밀번호를 한 번 더 입력하세요" />
         <StyledP2>비밀번호를 정확하게 입력하세요</StyledP2>
         <StyledButton>
-          <ButtonComp onClick={() => {}} size={"Large"}>
+          <ButtonComp
+            onClick={() => {
+              router("/MainLog");
+            }}
+            size={"Large"}
+          >
             회원가입
           </ButtonComp>
         </StyledButton>

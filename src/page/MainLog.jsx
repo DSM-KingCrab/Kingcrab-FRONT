@@ -8,7 +8,7 @@ import plusImg from "../images/ic_round-plus.png";
 const MainLog = () => {
   return (
     <>
-      <HeaderLog></HeaderLog>
+      <HeaderLog Id="dodowind" />
       <StyledDiv>
         <Styledsection>
           <Post />
@@ -19,7 +19,9 @@ const MainLog = () => {
       </StyledDiv>
       <Plus>
         <AddPost>
-          <StyledImg src={plusImg} alt="추가" />
+          <a href="/Write" style={{ textDecoration: "none" }}>
+            <StyledImg src={plusImg} alt="추가" />
+          </a>
         </AddPost>
       </Plus>
     </>

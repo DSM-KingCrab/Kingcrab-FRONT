@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import CancelComp from "./CancelComp";
-import ConfirmComp from "./ConfirmComp";
+import CancelComp from "../components/CancelComp";
+import ConfirmComp from "../components/ConfirmComp";
 
-const NoticeCorrect = (props) => {
+const NoticeDelete = (props) => {
   return (
     <>
       <Main>
@@ -12,11 +12,11 @@ const NoticeCorrect = (props) => {
           <Desc2>{props.des}</Desc2>
         </SmallDiv>
         <Button>
-        <a href="/Correction" style={{ textDecoration: "none" }}>
+          <a href="/ViewPost" style={{ textDecoration: "none" }}>
             <CancelComp />
           </a>
-          <a href="/ViewPost" style={{ textDecoration: "none" }}>
-            <ConfirmComp text="수정" />
+          <a href="/MainLog" style={{ textDecoration: "none" }}>
+            <ConfirmComp text="삭제" />
           </a>
         </Button>
       </Main>
@@ -29,7 +29,7 @@ const Button = styled.div`
   height: 56px;
   justify-content: space-between;
   margin-top: 40px;
-`
+`;
 const SmallDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -64,4 +64,4 @@ const Main = styled.div`
   padding: 42px 0 62px 0;
 `;
 
-export default NoticeCorrect;
+export default NoticeDelete;

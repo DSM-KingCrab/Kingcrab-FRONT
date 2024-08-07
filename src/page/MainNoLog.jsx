@@ -6,17 +6,17 @@ import Post from "../components/PostComp";
 const MainNoLog = () => {
   return (
     <>
-      <HeaderNoLog></HeaderNoLog>
+      <HeaderNoLog />
       <StyledDiv>
         <Styledsection>
-          <Post/>
-          <Post/>
-          <Post/>
+          <Post />
+          <Post />
+          <Post />
         </Styledsection>
       </StyledDiv>
     </>
   );
-}
+};
 
 const Styledsection = styled.section`
   width: 1044px;
@@ -26,6 +26,6 @@ const Styledsection = styled.section`
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 export default MainNoLog;

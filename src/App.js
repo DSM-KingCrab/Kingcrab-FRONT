@@ -13,6 +13,7 @@ import MyPage from "./page/Mypage";
 import MyPage2 from "./page/Mypage2";
 import MyPage3 from "./page/Mypage3";
 import MyPage4 from "./page/Mypage4";
+import NoticeDelete from "./page/NoticeDelete";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Mypage2" element={<MyPage2 />} />
         <Route path="/Mypage3" element={<MyPage3 />} />
         <Route path="/Mypage4" element={<MyPage4 />} />
+        <Route path="/NoticeDelete" element={<NoticeDelete />} />
       </Routes>
     </BrowserRouter>
 
