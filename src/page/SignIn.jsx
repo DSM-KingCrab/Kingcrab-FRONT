@@ -6,8 +6,34 @@ import { theme } from "../styles/theme";
 import Password from "../components/PassComp";
 import ButtonComp from "../components/ButtonComp";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+
+  const [usableId, setUsableId] = useState(false);
+
+  const dupCheck = () => {
+    dupCheckAPI(userid)
+    .then((response) => {
+      if(response=== false)
+    })
+  }
+
+  const dupCheckAPI = async(userid) => {
+    let return_value;
+    await axios.post("", {
+      userid: userid,
+    })
+    .then((response) => {
+      return_value = response.data;
+    })
+    .catch(function(error){
+      return_value = true;
+    })
+    return return_value
+  }
+
+  const router = useNavigate();
   const [data, setData] = useState({
     userName: "",
     password: "",
@@ -16,9 +42,8 @@ const SignIn = () => {
   const [passwd, setRepassword] = useState("");
 
   const onClick = () => {
-    if(IsName === true && IdCheck === true && passwdCheck === true)
-    {
-      axios.post("http://192.168.1.11:8080/signup", data);
+    if (IsName() === true && IdCheck() === true && passwdCheck() === true) {
+      axios.post("http://192.168.1.102:8080/signup", data);
     } else {
       alert("모든 정보를 정확하게 입력해주세요.");
     }
@@ -56,7 +81,8 @@ const SignIn = () => {
   };
 
   const passwdCheck = () => {
-    const checkPasswd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
+    const checkPasswd =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
 
     if (checkPasswd.test(data.password)) {
       return true;
@@ -70,68 +96,100 @@ const SignIn = () => {
   }, [passwd, data.password]);
 
   return (
-    <StyledDiv>
-      <StyledSection>
-        <StyledImage src={KingCrabLogo} alt="대게 로고" />
-        <StyledH1>대게</StyledH1>
-        <StyledDiv>
-          <StyledH11>
-            <StyledH1>대</StyledH1>
-            <p>마고</p> <StyledH1>게</StyledH1>시판에 회원가입 하세요
-          </StyledH11>
-        </StyledDiv>
-        <Input
-          label="아이디"
-          type="text"
-          value={data.userName}
-          name="userName"
-          placeholder="아이디를 입력하세요"
-          onChange={handleChange}
-        />
-        {IdCheck() ? (
-          <StyledP2>올바른 아이디 형식입니다.</StyledP2>
-        ) : (
-          <StyledP3>
-            5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.
-          </StyledP3>
-        )}
-        <Password
-          label="비밀번호"
-          type="text"
-          placeholder="비밀번호를 입력하세요"
-          value={data.password}
-          name="password"
-          onChange={handleChange}
-        />
-        {passwdCheck() ? (
-          <StyledP2>올바른 비밀번호 형식입니다.</StyledP2>
-        ) : (
-          <StyledP3>
-            8~16자의 영문 대 소문자, 숫자, 특수문자를 포함하게 작성하세요.
-          </StyledP3>
-        )}
-        <Password
-          label="비밀번호 확인"
-          type="text"
-          placeholder="비밀번호를 한 번 더 입력하세요"
-          value={passwd}
-          name="passwd"
-          onChange={handleRepassword}
-        />
-        {IsName() ? (
-          <StyledP2>비밀번호가 일치합니다</StyledP2>
-        ) : (
-          <StyledP3>비밀번호가 일치하지 않습니다</StyledP3>
-        )}
-        <StyledButton>
-          <ButtonComp onClick={onClick} size={"Large"}>
-            회원가입
-          </ButtonComp>
-        </StyledButton>
-      </StyledSection>
-    </StyledDiv>
+    <BigDiv>
+      <StyledDiv>
+        <StyledSection>
+          <StyledImage src={KingCrabLogo} alt="대게 로고" />
+          <StyledH1>대게</StyledH1>
+          <StyledDiv>
+            <StyledH11>
+              <StyledH1>대</StyledH1>
+              <p>마고</p> <StyledH1>게</StyledH1>시판에 회원가입 하세요
+            </StyledH11>
+          </StyledDiv>
+          <InputDiv>
+            <Input
+              width="452px"
+              label="아이디"
+              type="text"
+              value={data.userName}
+              name="userName"
+              placeholder="아이디를 입력하세요"
+              onChange={handleChange}
+            />
+
+          <Dup>중복 확인</Dup>
+          </InputDiv>
+          {IdCheck() ? (
+            <StyledP2>올바른 아이디 형식입니다.</StyledP2>
+          ) : (
+            <StyledP3>
+              5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.
+            </StyledP3>
+          )}
+          <Password
+            label="비밀번호"
+            type="text"
+            placeholder="비밀번호를 입력하세요"
+            value={data.password}
+            name="password"
+            onChange={handleChange}
+          />
+          {passwdCheck() ? (
+            <StyledP2>올바른 비밀번호 형식입니다.</StyledP2>
+          ) : (
+            <StyledP3>
+              8~16자의 영문 대 소문자, 숫자, 특수문자를 포함하게 작성하세요.
+            </StyledP3>
+          )}
+          <Password
+            label="비밀번호 확인"
+            type="text"
+            placeholder="비밀번호를 한 번 더 입력하세요"
+            value={passwd}
+            name="passwd"
+            onChange={handleRepassword}
+          />
+          {IsName() ? (
+            <StyledP2>비밀번호가 일치합니다</StyledP2>
+          ) : (
+            <StyledP3>비밀번호가 일치하지 않습니다</StyledP3>
+          )}
+          <StyledButton>
+            <ButtonComp onClick={onClick} size={"Large"}>
+              회원가입
+            </ButtonComp>
+          </StyledButton>
+        </StyledSection>
+      </StyledDiv>
+    </BigDiv>
   );
 };
+
+const InputDiv = styled.div`
+  display: flex;
+  align-items: end;
+`
+const Dup = styled.button`
+  width: 140px;
+  height: 48px;
+  margin-left: 8px;
+  background-color: ${theme.color.main[500]};
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  display: inline;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+`;
+const BigDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
 
 const StyledButton = styled.div`
   margin-top: 32px;
