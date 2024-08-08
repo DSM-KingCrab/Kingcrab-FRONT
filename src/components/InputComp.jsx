@@ -1,9 +1,9 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-const Input = (props) => {
+const Input = ({width="100%", ...props}) => {
   return (
-    <>
+    <InputContainer>
       <StyledP>{props.label}</StyledP>
       <StyledInput
         type="text"
@@ -12,14 +12,19 @@ const Input = (props) => {
         value={props.value}
         onChange={props.onChange}
         autoFocus
+        width={width}
       />
-    </>
+    </InputContainer>
   );
 };
 
+const InputContainer = styled.div`
+  
+`
+
 const StyledInput = styled.input`
   padding: 16px;
-  width: 100%;
+  width: ${({width})=> width};
   height: 48px;
   border: 2px solid ${theme.color.gray[100]};
   border-radius: 10px;

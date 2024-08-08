@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/Vector.png";
+import KingKrabLogo from "../images/KingCrab.png";
 import Write from "../images/jam_write-f.png";
 
 const MyPage = () => {

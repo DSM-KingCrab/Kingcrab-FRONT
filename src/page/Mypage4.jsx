@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/Vector.png";
+import KingKrabLogo from "../images/KingCrab.png";
 import Camera from "../images/Camera.png";
 import ButtonTest from "../components/ButtonComp";
 import Profile from "../images/length-landscape-2011238_1280 1.png";

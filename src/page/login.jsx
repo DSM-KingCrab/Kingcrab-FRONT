@@ -2,7 +2,7 @@ import React from "react";
 import ButtonTest from "../components/ButtonComp";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingCrabLogo from "../images/Vector.png";
+import KingCrabLogo from "../images/KingCrab.png";
 import "../fonts/font.css";
 import Password from "../components/Pass";
 import { useNavigate } from "react-router-dom";
