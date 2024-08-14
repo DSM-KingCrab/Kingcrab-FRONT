@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { theme } from "../styles/theme";
 import plusImg from "../images/ic_round-plus.png";
+import { instance } from "../api";
 
 const MainLog = () => {
+  const [data, setData] = useState([]);
+
+  const PostApi = async () => {
+    await instance
+      .get("/post/read")
+      .then((res) => setData(res))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    PostApi();
+  }, []);
+
   return (
     <>
       <HeaderLog Id="dodowind" />
       <StyledDiv>
         <Styledsection>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {data.map((item) => (
+            <Post name={item.name} now={item.now} content={item.content} postId={item.postId} />
+          ))}
         </Styledsection>
       </StyledDiv>
       <Plus>

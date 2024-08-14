@@ -3,13 +3,13 @@ import styled from "styled-components";
 import Delete from "../images/weui_delete-filled.png";
 import Write from "../images/jam_write-f.png";
 
-const Title = () => {
+const Title = (Props) => {
   return (
     <MainDiv>
       <StyledSpan>
         <StyledP>제목</StyledP>
         <StyledDiv />
-        <StyledP>제목제목제목</StyledP>
+        <StyledP>{Props.title}</StyledP>
       </StyledSpan>
       <IconDiv>
       <a href="/ConfirmDelete" style={{ textDecoration: "none" }}>

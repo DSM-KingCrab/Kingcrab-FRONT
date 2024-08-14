@@ -1,28 +1,28 @@
 import styled from "styled-components";
 import { theme } from "../styles/theme";
 
-const InfoWrite = () => {
+const InfoWrite = (Props) => {
   return (
     <MainDiv>
       <StyledSpan>
         <StyledP>작성자</StyledP>
-        <StyledHr/>
-        <StyledP>dodowind_</StyledP>
+        <StyledHr />
+        <StyledP>{Props.name}</StyledP>
       </StyledSpan>
-      <StyledSpan >
+      <StyledSpan>
         <StyledP>작성일</StyledP>
-        <StyledHr/>
-        <StyledP>2024.07.07</StyledP>
+        <StyledHr />
+        <StyledP>{Props.now}</StyledP>
       </StyledSpan>
     </MainDiv>
   );
-}
+};
 
 const StyledSpan = styled.span`
   height: 28px;
   display: flex;
   align-items: center;
-`
+`;
 const StyledHr = styled.div`
   border-left: 2px solid ${theme.color.gray[300]};
   width: 0;
@@ -30,7 +30,7 @@ const StyledHr = styled.div`
   display: inline;
   margin-left: 20px;
   margin-right: 20px;
-`
+`;
 const StyledP = styled.p`
   font-size: 20px;
   font-weight: bold;

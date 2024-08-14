@@ -2,7 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import KingCrabLogoWhite from "../images/KingCrab.png";
 
-const HeaderLog = (props) => {
+const HeaderLog = (Props) => {
   return (
     <>
       <StyledDiv>
@@ -13,7 +13,7 @@ const HeaderLog = (props) => {
           </Logo>
         </a>
         <a href="/Mypage" style={{ textDecoration: "none" }}>
-          <StyledP2>{props.Id}</StyledP2>
+          <StyledP2>{Props.name}</StyledP2>
         </a>
       </StyledDiv>
     </>
