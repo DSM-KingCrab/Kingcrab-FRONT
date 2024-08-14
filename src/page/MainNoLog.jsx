@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HeaderNoLog from "../components/HeaderCompNoLog";
 import Post from "../components/PostComp";
+import axios from "axios";
 
 const MainNoLog = () => {
   return (
@@ -9,14 +10,14 @@ const MainNoLog = () => {
       <HeaderNoLog></HeaderNoLog>
       <StyledDiv>
         <Styledsection>
-          <Post/>
-          <Post/>
-          <Post/>
+          <Post />
+          <Post />
+          <Post />
         </Styledsection>
       </StyledDiv>
     </>
   );
-}
+};
 
 const Styledsection = styled.section`
   width: 1044px;
@@ -26,6 +27,6 @@ const Styledsection = styled.section`
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 export default MainNoLog;

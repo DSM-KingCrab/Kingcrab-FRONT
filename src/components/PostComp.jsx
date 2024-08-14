@@ -3,20 +3,22 @@ import styled from "styled-components";
 import Comment from "./comentComp";
 import LikeComp from "./LikeComp";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <StyledDiv>
       <Profile />
       <MainDiv>
-        <Id>dodowind_</Id> <PostDate>2024.07.21</PostDate> <LikeComp/>
-        <MainPost>으아아ㅓ라ㅣㅓㅇ랴ㅐㅁ넝ㄹ다ㅜㅏㄴ어ㅏㅇ러ㅏㅁㅇ너랴ㅐ더ㅏ리ㅜㅏㄴㅇ룬오ㅗㅓㅇㄴ라ㅓㅓ아리ㅓ냐애럳쟈루ㅏ우퍼ㅗ로ㅑㅇ나ㅓ랴ㅏㅐㅇ누ㅏ처ㅡㅏㄴ애로ㅜㅑㅓ아너라ㅓㄴ알아러ㅐㄷ거ㅐ츠러어ㅏㅣ카터ㅏㅇ컨.ㄴ어어라.와죠ㅗㅕ,ㅏㄷ걔ㅐㄹ히ㅏ어ㅏ노ㅓ노ㅓㄴ와ㅑㅇ러ㅐㅑ러ㅏ원어랴ㅐㅣ.ㅇㄹ풀츠ㅓㅑㄱㄷ호ㅜㅕㅑㄷ푸ㅗㅑㅓ랴츠ㅐㅓㅐ트ㅓㅑ대ㅗ퓨ㅕ댜추ㅗㅑㅕㅔ거ㅑ탠랴ㅑㅗㅇ러ㅗ어ㅓㅓ아ㅇ럴/...</MainPost>
+        <Id>{props.PostId}</Id> <PostDate>{props}</PostDate> <LikeComp />
+        <MainPost>
+          으아아ㅓ라ㅣㅓㅇ랴ㅐㅁ넝ㄹ다ㅜㅏㄴ어ㅏㅇ러ㅏㅁㅇ너랴ㅐ더ㅏ리ㅜㅏㄴㅇ룬오ㅗㅓㅇㄴ라ㅓㅓ아리ㅓ냐애럳쟈루ㅏ우퍼ㅗ로ㅑㅇ나ㅓ랴ㅏㅐㅇ누ㅏ처ㅡㅏㄴ애로ㅜㅑㅓ아너라ㅓㄴ알아러ㅐㄷ거ㅐ츠러어ㅏㅣ카터ㅏㅇ컨.ㄴ어어라.와죠ㅗㅕ,ㅏㄷ걔ㅐㄹ히ㅏ어ㅏ노ㅓ노ㅓㄴ와ㅑㅇ러ㅐㅑ러ㅏ원어랴ㅐㅣ.ㅇㄹ풀츠ㅓㅑㄱㄷ호ㅜㅕㅑㄷ푸ㅗㅑㅓ랴츠ㅐㅓㅐ트ㅓㅑ대ㅗ퓨ㅕ댜추ㅗㅑㅕㅔ거ㅑ탠랴ㅑㅗㅇ러ㅗ어ㅓㅓ아ㅇ럴/...
+        </MainPost>
         <More>더보기...</More>
-        <Comment placeholder="댓글 달기"/>
+        <Comment placeholder="댓글 달기" />
         <SeeComment>댓글 3개 보기...</SeeComment>
       </MainDiv>
     </StyledDiv>
   );
-}
+};
 
 const SeeComment = styled.p`
   font-size: 20px;
@@ -24,13 +26,13 @@ const SeeComment = styled.p`
   color: ${theme.color.gray[300]};
   margin-top: 12px;
   float: right;
-`
+`;
 const More = styled.p`
   font-size: 20px;
   font-weight: bold;
   color: ${theme.color.gray[300]};
   margin: 24px 0 20px 0;
-`
+`;
 const StyledDiv = styled.div`
   width: 1044px;
   height: 320px;
@@ -71,6 +73,6 @@ const MainPost = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 21px;
-`
+`;
 
 export default Post;

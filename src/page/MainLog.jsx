@@ -1,28 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { theme } from "../styles/theme";
 import plusImg from "../images/ic_round-plus.png";
+import instance from "../api/index";
 
 const MainLog = () => {
+  const [boardList, setBoardList] = useState([]);
+
+  useEffect(() => {
+    instance.get("http://172.20.10.3:8080/read").then((Response) => {
+      setBoardList(Response.data);
+    });
+  }, []);
+
   return (
-    <>
-      <HeaderLog></HeaderLog>
-      <StyledDiv>
-        <Styledsection>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </Styledsection>
-      </StyledDiv>
-      <Plus>
-        <AddPost>
-          <StyledImg src={plusImg} alt="추가" />
-        </AddPost>
-      </Plus>
-    </>
+    <div>
+      {boardList.map((e) => (
+        <div>
+          <HeaderLog Id={e.name} />
+          <StyledDiv>
+            <Styledsection>
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+            </Styledsection>
+          </StyledDiv>
+          <Plus>
+            <AddPost>
+              <StyledImg src={plusImg} alt="추가" />
+            </AddPost>
+          </Plus>
+        </>
+      ))}
+    </div>
   );
 };
 

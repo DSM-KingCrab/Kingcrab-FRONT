@@ -1,7 +1,7 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-const Input = ({width="100%", ...props}) => {
+const Input = ({ width = "100%", ...props }) => {
   return (
     <InputContainer>
       <StyledP>{props.label}</StyledP>
@@ -18,13 +18,11 @@ const Input = ({width="100%", ...props}) => {
   );
 };
 
-const InputContainer = styled.div`
-  
-`
+const InputContainer = styled.div``;
 
 const StyledInput = styled.input`
   padding: 16px;
-  width: ${({width})=> width};
+  width: ${({ width }) => width};
   height: 48px;
   border: 2px solid ${theme.color.gray[100]};
   border-radius: 10px;

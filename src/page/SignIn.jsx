@@ -7,33 +7,11 @@ import Password from "../components/PassComp";
 import ButtonComp from "../components/ButtonComp";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
-
-  const [usableId, setUsableId] = useState(false);
-
-  const dupCheck = () => {
-    dupCheckAPI(userid)
-    .then((response) => {
-      if(response=== false)
-    })
-  }
-
-  const dupCheckAPI = async(userid) => {
-    let return_value;
-    await axios.post("", {
-      userid: userid,
-    })
-    .then((response) => {
-      return_value = response.data;
-    })
-    .catch(function(error){
-      return_value = true;
-    })
-    return return_value
-  }
-
   const router = useNavigate();
+
   const [data, setData] = useState({
     userName: "",
     password: "",
@@ -43,9 +21,28 @@ const SignIn = () => {
 
   const onClick = () => {
     if (IsName() === true && IdCheck() === true && passwdCheck() === true) {
-      axios.post("http://192.168.1.102:8080/signup", data);
+      axios.post("http://172.20.10.3:8080/signup", data);
     } else {
       alert("모든 정보를 정확하게 입력해주세요.");
+    }
+  };
+
+  const checkDup = async (userName) => {
+    const checkIdDup = await axios.get(
+      `http://172.20.10.3:8080/duplicate/${userName}`
+    );
+    if (checkIdDup === true) {
+      Swal.fire({
+        icon: "success",
+        title: "중복되는 아이디 없음",
+        text: "사용 가능한 아이디입니다🥳.",
+      });
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "중복되는 아이디 있음",
+        text: "이미 존재하는 아이디입니다😥.",
+      });
     }
   };
 
@@ -118,7 +115,7 @@ const SignIn = () => {
               onChange={handleChange}
             />
 
-          <Dup>중복 확인</Dup>
+            <Dup onClick={() => checkDup(data.userName)}>중복 확인</Dup>
           </InputDiv>
           {IdCheck() ? (
             <StyledP2>올바른 아이디 형식입니다.</StyledP2>
@@ -169,7 +166,7 @@ const SignIn = () => {
 const InputDiv = styled.div`
   display: flex;
   align-items: end;
-`
+`;
 const Dup = styled.button`
   width: 140px;
   height: 48px;
