@@ -9,7 +9,9 @@ const Comment = (props) => {
         placeholder={props.placeholder}
         postId={props.postId}
         value={props.value}
+        name={props.name}
         onChange={props.onChange}
+        onKeyDown={props.onKeyDown}
       />
     </>
   );

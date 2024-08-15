@@ -6,7 +6,7 @@ import Title from "../components/TitleComp";
 import Detail from "../components/Detail";
 import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
-import axios from "axios";
+import instance from "../api";
 import Swal from "sweetalert2";
 
 const ViewPost = () => {
@@ -15,15 +15,21 @@ const ViewPost = () => {
     id: "",
   });
 
-  const [content, setContent] = useState("");
-
-  const onEnter = () => {
-    if (data.comment === "") {
-      Swal.fire({
-        toast: "댓글 내용을 입력해주세요.",
-      });
-    } else {
-      axios.post("http://172.20.10.3:8080/create", data);
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      if (data.comment === "") {
+        Swal.fire({
+          icon: "error",
+          title: "내용이 없습니다!",
+          text: "댓글 내용을 입력해주세요.",
+          timer: 1500,
+        });
+      } else {
+        instance.post("http://172.20.10.3:8080/create", data);
+        document.getElementById("commentSection").innerHTML += `
+          <DtComment />
+        `;
+      }
     }
   };
 
@@ -43,15 +49,14 @@ const ViewPost = () => {
           <InfoComp />
           <Title />
           <Detail />
-          <CommentSection>
+          <CommentSection id="commentSection">
             <Comment
               value={data.comment}
               name="comment"
               onChange={handleChange}
+              onKeyDown={onEnter}
               placeholder="댓글 달기"
             />
-            <DtComment />
-            <DtComment />
           </CommentSection>
         </MainDiv>
       </StyledSpan>
