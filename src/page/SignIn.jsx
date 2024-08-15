@@ -5,40 +5,6 @@ import KingCrabLogo from "../images/Krab.png";
 import { theme } from "../styles/theme";
 import Password from "../components/PassComp";
 import ButtonComp from "../components/ButtonComp";
-<<<<<<< HEAD
-import { useNavigate } from "react-router-dom";
-
-const SignIn = () => {
-  const router = useNavigate();
-  return (
-    <StyledDiv>
-      <StyledSection>
-        <StyledImage src={KingCrabLogo} alt="대게 로고" />
-        <StyledH1>대게</StyledH1>
-        <StyledDiv>
-          <StyledH11>
-            <StyledH1>대</StyledH1>
-            <p>마고</p> <StyledH1>게</StyledH1>시판에 회원가입 하세요
-          </StyledH11>
-        </StyledDiv>
-        <Input label="아이디" type="text" placeholder="6자 이상 작성하세요" />
-        <Password label="비밀번호" type="text" placeholder="비밀번호를 입력하세요" />
-        <StyledP2>알파벳 소문자, 대문자, 특수문자 포함 8자 이상</StyledP2>
-        <Password label="비밀번호 확인" type="text" placeholder="비밀번호를 한 번 더 입력하세요" />
-        <StyledP2>비밀번호를 정확하게 입력하세요</StyledP2>
-        <StyledButton>
-          <ButtonComp
-            onClick={() => {
-              router("/MainLog");
-            }}
-            size={"Large"}
-          >
-            회원가입
-          </ButtonComp>
-        </StyledButton>
-      </StyledSection>
-    </StyledDiv>
-=======
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -192,7 +158,6 @@ const SignIn = () => {
         </StyledSection>
       </StyledDiv>
     </BigDiv>
->>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
   );
 };
 

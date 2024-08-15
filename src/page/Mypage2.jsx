@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-<<<<<<< HEAD
-=======
-import KingKrabLogo from "../images/KingCrab.png";
->>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
 import Camera from "../images/Camera.png";
 import ButtonTest from "../components/ButtonComp";
 import "../fonts/font.css";

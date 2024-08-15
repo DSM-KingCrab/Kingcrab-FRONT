@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-<<<<<<< HEAD
 import HeaderLog from "../components/HeaderCompLog";
-=======
-import KingKrabLogo from "../images/KingCrab.png";
->>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
 import Write from "../images/jam_write-f.png";
 
 const MyPage = () => {
