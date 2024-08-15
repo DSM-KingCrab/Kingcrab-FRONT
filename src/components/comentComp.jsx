@@ -2,12 +2,18 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 
 const Comment = (props) => {
-  return(
+  return (
     <>
-      <StyledComment type="text" placeholder={props.placeholder}/>
+      <StyledComment
+        type="text"
+        placeholder={props.placeholder}
+        postId={props.postId}
+        value={props.value}
+        onChange={props.onChange}
+      />
     </>
-  )
-}
+  );
+};
 
 const StyledComment = styled.input`
   padding: 12px 16px;
@@ -16,7 +22,7 @@ const StyledComment = styled.input`
   border: none;
   border-radius: 10px;
   background-color: ${theme.color.gray[100]};
-  &::placeholder{
+  &::placeholder {
     color: ${theme.color.gray[300]};
     font-size: 20px;
     line-height: 24px;
@@ -24,6 +30,6 @@ const StyledComment = styled.input`
   font-size: 20px;
   color: black;
   outline: none;
-`
+`;
 
 export default Comment;

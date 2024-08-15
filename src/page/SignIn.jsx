@@ -6,12 +6,9 @@ import { theme } from "../styles/theme";
 import Password from "../components/PassComp";
 import ButtonComp from "../components/ButtonComp";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SignIn = () => {
-  const router = useNavigate();
-
   const [data, setData] = useState({
     userName: "",
     password: "",
@@ -24,25 +21,6 @@ const SignIn = () => {
       axios.post("http://172.20.10.3:8080/signup", data);
     } else {
       alert("모든 정보를 정확하게 입력해주세요.");
-    }
-  };
-
-  const checkDup = async (userName) => {
-    const checkIdDup = await axios.get(
-      `http://172.20.10.3:8080/duplicate/${userName}`
-    );
-    if (checkIdDup === true) {
-      Swal.fire({
-        icon: "success",
-        title: "중복되는 아이디 없음",
-        text: "사용 가능한 아이디입니다🥳.",
-      });
-    } else {
-      Swal.fire({
-        icon: "warning",
-        title: "중복되는 아이디 있음",
-        text: "이미 존재하는 아이디입니다😥.",
-      });
     }
   };
 
@@ -64,6 +42,25 @@ const SignIn = () => {
       return true;
     } else {
       return false;
+    }
+  };
+
+  const checkDup = async (userName) => {
+    const checkIdDup = await axios.get(
+      `http://172.20.10.3:8080/duplicate/${userName}`
+    );
+    if (checkIdDup === true) {
+      Swal.fire({
+        icon: "success",
+        title: "중복되는 아이디 없음",
+        text: "사용 가능한 아이디입니다🥳.",
+      });
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "중복되는 아이디 있음",
+        text: "이미 존재하는 아이디입니다😥.",
+      });
     }
   };
 
@@ -90,6 +87,7 @@ const SignIn = () => {
 
   useEffect(() => {
     IsName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passwd, data.password]);
 
   return (
