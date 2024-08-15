@@ -7,10 +7,10 @@ const DtComment = (props) => {
   return (
     <MainDiv>
       <StyledP>{props.Id}</StyledP>
-      <StyledDate>2024.7.28</StyledDate>
-      <LikeComp/>
-      <Contents>엄</Contents>
-      <Comment placeholder="답글 달기"/>
+      <StyledDate>{props.propDate}</StyledDate>
+      <LikeComp />
+      <Contents>{props.propComment}</Contents>
+      <Comment placeholder="답글 달기" />
     </MainDiv>
   );
 };
@@ -20,7 +20,7 @@ const Contents = styled.p`
   font-size: 20px;
   font-weight: lighter;
   margin: 12px 0;
-`
+`;
 const StyledP = styled.p`
   font-size: 24px;
   font-weight: bold;

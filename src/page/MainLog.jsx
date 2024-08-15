@@ -18,7 +18,7 @@ const MainLog = () => {
   return (
     <div>
       {boardList.map((e) => (
-        <div>
+        <>
           <HeaderLog Id={e.name} />
           <StyledDiv>
             <Styledsection>
