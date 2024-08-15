@@ -25,10 +25,8 @@ const ViewPost = () => {
           timer: 1500,
         });
       } else {
-        instance.post("http://172.20.10.3:8080/create", data);
-        document.getElementById("commentSection").innerHTML += `
-          <DtComment />
-        `;
+        instance.post("/create", data);
+        setData({ comment: "" });
       }
     }
   };
@@ -57,6 +55,7 @@ const ViewPost = () => {
               onKeyDown={onEnter}
               placeholder="댓글 달기"
             />
+            <DtComment />
           </CommentSection>
         </MainDiv>
       </StyledSpan>
