@@ -22,7 +22,12 @@ const SmallButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+<<<<<<< HEAD
   font-family: "Wanted Sans KR";
+=======
+  font-family: wanted;
+  cursor: pointer;
+>>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
 `;
 
 const MediumButton = styled.div`
@@ -33,7 +38,12 @@ const MediumButton = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+<<<<<<< HEAD
   font-family: "Wanted Sans KR";
+=======
+  font-family: wanted;
+  cursor: pointer;
+>>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
 `;
 
 const LargeButton = styled.div`
@@ -47,5 +57,10 @@ const LargeButton = styled.div`
   color: white;
   font-size: 24px;
   font-weight: bold;
+<<<<<<< HEAD
   font-family: "Wanted Sans KR";
+=======
+  font-family: wanted;
+  cursor: pointer;
+>>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
 `;

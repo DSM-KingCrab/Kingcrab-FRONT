@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASEURL = process.env.REACT_APP_BASE_URL;
 
-export const instance = axios.create({
+const instance = axios.create({
   baseURL: BASEURL,
   timeout: 10000,
 });
@@ -25,3 +25,5 @@ instance.interceptors.request.use(
 console.log(result);
 return result.data.accessToken;
 */
+
+export default instance;

@@ -1,18 +1,28 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-const Input = (props) => {
+const Input = ({ width = "100%", ...props }) => {
   return (
-    <>
+    <InputContainer>
       <StyledP>{props.label}</StyledP>
-      <StyledInput type="text" placeholder={props.placeholder} autoFocus/>
-    </>
+      <StyledInput
+        type="text"
+        placeholder={props.placeholder}
+        name={props.name}
+        value={props.value}
+        onChange={props.onChange}
+        autoFocus
+        width={width}
+      />
+    </InputContainer>
   );
-}
+};
+
+const InputContainer = styled.div``;
 
 const StyledInput = styled.input`
   padding: 16px;
-  width: 100%;
+  width: ${({ width }) => width};
   height: 48px;
   border: 2px solid ${theme.color.gray[100]};
   border-radius: 10px;
@@ -29,6 +39,6 @@ const StyledP = styled.p`
   font-size: 24px;
   margin-bottom: 12px;
   margin-top: 32px;
-`
+`;
 
 export default Input;

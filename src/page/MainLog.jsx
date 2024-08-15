@@ -4,6 +4,7 @@ import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { theme } from "../styles/theme";
 import plusImg from "../images/ic_round-plus.png";
+<<<<<<< HEAD
 import { instance } from "../api";
 
 const MainLog = () => {
@@ -39,6 +40,40 @@ const MainLog = () => {
         </AddPost>
       </Plus>
     </>
+=======
+import instance from "../api/index";
+
+const MainLog = () => {
+  const [boardList, setBoardList] = useState([]);
+
+  useEffect(() => {
+    instance.get("http://172.20.10.3:8080/read").then((Response) => {
+      setBoardList(Response.data);
+    });
+  }, []);
+
+  return (
+    <div>
+      {boardList.map((e) => (
+        <>
+          <HeaderLog Id={e.name} />
+          <StyledDiv>
+            <Styledsection>
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+            </Styledsection>
+          </StyledDiv>
+          <Plus>
+            <AddPost>
+              <StyledImg src={plusImg} alt="추가" />
+            </AddPost>
+          </Plus>
+        </>
+      ))}
+    </div>
+>>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
   );
 };
 

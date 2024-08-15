@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { theme } from "../styles/theme";
 import KingCrabLogo from "../images/KingCrab.png";
 import "../fonts/font.css";
-import Password from "../components/Pass";
+import Password from "../components/PassComp";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -27,7 +27,11 @@ const Login = () => {
             <input type="text" placeholder="아이디를 입력하세요" />
           </Id>
         </Input>
-        <Password label="비밀번호" type="password" placeholder="비밀번호를 입력하세요" />
+        <Password
+          label="비밀번호"
+          type="password"
+          placeholder="비밀번호를 입력하세요"
+        />
         <LargeButton>
           <ButtonTest
             onClick={() => {

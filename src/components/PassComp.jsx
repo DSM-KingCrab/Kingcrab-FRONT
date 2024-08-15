@@ -1,7 +1,7 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 import openEye from "../images/mdi_eye.png";
-import closeEye from "../images/mdi_eye-off.png"
+import closeEye from "../images/mdi_eye-off.png";
 import { useState } from "react";
 
 const Password = (props) => {
@@ -24,9 +24,19 @@ const Password = (props) => {
     <>
       <StyledP>{props.label}</StyledP>
       <InputBox>
-        <StyledInput type={pwType.type} placeholder={props.placeholder} />
+        <StyledInput
+          type={pwType.type}
+          placeholder={props.placeholder}
+          name={props.name}
+          value={props.value}
+          onChange={props.onChange}
+        />
         <StyledSpan onClick={handlePasswordType}>
-          {pwType.visible ? <img src={openEye} alt="비밀번호 보이기"/> : <img src={closeEye} alt="비밀번호 숨기기"/>}
+          {pwType.visible ? (
+            <img src={openEye} alt="비밀번호 보이기" />
+          ) : (
+            <img src={closeEye} alt="비밀번호 숨기기" />
+          )}
         </StyledSpan>
       </InputBox>
     </>

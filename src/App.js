@@ -21,12 +21,12 @@ function App() {
       <Routes>
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/MainNoLog" element={<MainNoLog />} />
-        <Route path="/ViewPost" element={<ViewPost/>} />
-        <Route path="/Write" element={<Write/>} />
-        <Route path="/Correction" element={<Correction/>} />
-        <Route path="/ConfirmDelete" element={<ConfirmDelete/>} />
-        <Route path="/ConfirmCorrect" element={<ConfirmCorrect/>} />
-        <Route path="/MainLog" element={<MainLog/>} />
+        <Route path="/ViewPost" element={<ViewPost />} />
+        <Route path="/Write" element={<Write />} />
+        <Route path="/Correction" element={<Correction />} />
+        <Route path="/ConfirmDelete" element={<ConfirmDelete />} />
+        <Route path="/ConfirmCorrect" element={<ConfirmCorrect />} />
+        <Route path="/MainLog" element={<MainLog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Mypage" element={<MyPage />} />
         <Route path="/Mypage2" element={<MyPage2 />} />
@@ -35,7 +35,6 @@ function App() {
         <Route path="/NoticeDelete" element={<NoticeDelete />} />
       </Routes>
     </BrowserRouter>
-
   );
 }
 

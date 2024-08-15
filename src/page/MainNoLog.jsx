@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HeaderNoLog from "../components/HeaderCompNoLog";
 import Post from "../components/PostComp";
+import axios from "axios";
 
 const MainNoLog = () => {
   return (

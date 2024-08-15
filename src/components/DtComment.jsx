@@ -6,11 +6,19 @@ import Comment from "./comentComp";
 const DtComment = (Props) => {
   return (
     <MainDiv>
+<<<<<<< HEAD
       <StyledP>{Props.username}</StyledP>
       <StyledDate>{Props.now}</StyledDate>
       <LikeComp/>
       <Contents>{Props.comment}</Contents>
       <Comment placeholder="답글 달기"/>
+=======
+      <StyledP>{props.Id}</StyledP>
+      <StyledDate>{props.propDate}</StyledDate>
+      <LikeComp />
+      <Contents>{props.propComment}</Contents>
+      <Comment placeholder="답글 달기" />
+>>>>>>> 8133a5fe5b39f9408db8338ceffcad3518bb7827
     </MainDiv>
   );
 };
@@ -20,7 +28,7 @@ const Contents = styled.p`
   font-size: 20px;
   font-weight: lighter;
   margin: 12px 0;
-`
+`;
 const StyledP = styled.p`
   font-size: 24px;
   font-weight: bold;
