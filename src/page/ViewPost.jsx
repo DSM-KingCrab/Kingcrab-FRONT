@@ -5,7 +5,7 @@ import InfoComp from "../components/InfoComp";
 import Title from "../components/TitleComp";
 import Detail from "../components/Detail";
 import Comment from "../components/comentComp";
-//import DtComment from "../components/DtComment";
+import DtComment from "../components/DtComment";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -50,8 +50,8 @@ const ViewPost = () => {
               onChange={handleChange}
               placeholder="댓글 달기"
             />
-            {/* <DtComment Id={} propDate={} propComment={} />
-            <DtComment Id={} propDate={} propComment={} /> */}
+            <DtComment />
+            <DtComment />
           </CommentSection>
         </MainDiv>
       </StyledSpan>
