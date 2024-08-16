@@ -17,7 +17,7 @@ const Login = () => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setData({ ...data, [name]: value });
+    setData({ ...data, [name]: value }); console.log(data)
   };
   const onClick = () => {
     axios.post(`${BASE_URL}login`, data).then(console.log("dedwe"));
@@ -40,14 +40,14 @@ const Login = () => {
             <input
               type="text"
               placeholder="아이디를 입력하세요"
-              onChange={handleChange}
+              onChange={handleChange} name="userName" value={data.userName}
             />
           </Id>
         </Input>
         <Password
           label="비밀번호"
           type="password"
-          placeholder="비밀번호를 입력하세요"
+          placeholder="비밀번호를 입력하세요" onChange={handleChange} name="password" value={data.password}
         />
         <LargeButton>
           <ButtonTest onClick={onClick} size={"Large"}>
