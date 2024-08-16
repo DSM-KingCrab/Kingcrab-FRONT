@@ -4,7 +4,7 @@ import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { theme } from "../styles/theme";
 import plusImg from "../images/ic_round-plus.png";
-import { instance } from "../api";
+import instance from "../api";
 
 const MainLog = () => {
   const [data, setData] = useState([]);
@@ -23,7 +23,7 @@ const MainLog = () => {
 
   return (
     <>
-      <HeaderLog Id="dodowind" />
+      <HeaderLog />
       <StyledDiv>
         <Styledsection>
           {data.map((item) => (

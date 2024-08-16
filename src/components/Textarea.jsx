@@ -1,13 +1,13 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-const Textarea = () => {
+const Textarea = (Props) => {
   return (
     <>
-      <MainText placeholder="내용을 입력하세요."/>
+      <MainText placeholder={Props.placeholder} onChange={Props.OnChange} name={Props.name} value={Props.value} />
     </>
-  )
-}
+  );
+};
 
 const MainText = styled.textarea`
   width: 1044px;
@@ -24,5 +24,5 @@ const MainText = styled.textarea`
   &::-webkit-scrollbar {
     display: none;
   }
-`
+`;
 export default Textarea;
