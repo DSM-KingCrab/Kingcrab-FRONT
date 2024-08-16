@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonTest from "../components/ButtonComp";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
@@ -6,9 +6,22 @@ import KingCrabLogo from "../images/KingCrab.png";
 import "../fonts/font.css";
 import Password from "../components/PassComp";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const router = useNavigate();
+  const [data, setData] = useState({
+    userName: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+  const onClick = () => {
+    axios.post(`${BASE_URL}login`, data).then(console.log("dedwe"));
+  };
   return (
     <StyledDiv>
       <StyledImage src={KingCrabLogo} alt="대게 로고" />
@@ -24,7 +37,11 @@ const Login = () => {
         <Input>
           <Id>
             <p>아이디</p>
-            <input type="text" placeholder="아이디를 입력하세요" />
+            <input
+              type="text"
+              placeholder="아이디를 입력하세요"
+              onChange={handleChange}
+            />
           </Id>
         </Input>
         <Password
@@ -33,12 +50,7 @@ const Login = () => {
           placeholder="비밀번호를 입력하세요"
         />
         <LargeButton>
-          <ButtonTest
-            onClick={() => {
-              router("/MainLog");
-            }}
-            size={"Large"}
-          >
+          <ButtonTest onClick={onClick} size={"Large"}>
             로그인
           </ButtonTest>
         </LargeButton>
