@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import InfoComp from "../components/InfoComp";
@@ -6,24 +6,39 @@ import Title from "../components/TitleComp";
 import Detail from "../components/Detail";
 import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
-import axios from "axios";
+import instance from "../api";
 import Swal from "sweetalert2";
 
 const ViewPost = () => {
+  const [viewData, setViewData] = useState([]);
+
+  const getData = () => {
+    instance.get("/comment/read{postId}").then((res) => {
+      console.log(res.data);
+
+      setViewData(res.data);
+    });
+  };
+
   const [data, setData] = useState({
     comment: "",
     id: "",
   });
 
-  const [content, setContent] = useState("");
-
-  const onEnter = () => {
-    if (data.comment === "") {
-      Swal.fire({
-        toast: "댓글 내용을 입력해주세요.",
-      });
-    } else {
-      axios.post("http://172.20.10.3:8080/create", data);
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      if (data.comment === "") {
+        Swal.fire({
+          icon: "error",
+          title: "내용이 없습니다!",
+          text: "댓글 내용을 입력해주세요.",
+          timer: 1500,
+        });
+      } else {
+        instance.post("/create", data);
+        setData({ comment: "" });
+        getData();
+      }
     }
   };
 
@@ -35,6 +50,10 @@ const ViewPost = () => {
     });
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
       <HeaderLog Id="Hi"/>
@@ -43,15 +62,18 @@ const ViewPost = () => {
           <InfoComp />
           <Title />
           <Detail />
-          <CommentSection>
+          <CommentSection id="commentSection">
             <Comment
               value={data.comment}
               name="comment"
               onChange={handleChange}
+              onKeyDown={onEnter}
               placeholder="댓글 달기"
             />
-            <DtComment />
-            <DtComment />
+            {viewData.map((e) => (
+              <DtComment Id={e.comment} time={e.now} content={e.comment} />
+            ))}
+            <DtComment Id="test" time="test" content="test" />
           </CommentSection>
         </MainDiv>
       </StyledSpan>

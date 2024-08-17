@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderNoLog from "../components/HeaderCompNoLog";
+import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
-import axios from "axios";
 
 const MainNoLog = () => {
   return (
     <>
-      <HeaderNoLog />
+      <HeaderLog />
       <StyledDiv>
         <Styledsection>
           <Post />

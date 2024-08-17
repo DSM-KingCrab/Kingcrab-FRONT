@@ -1,24 +1,43 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 import KingCrabLogoWhite from "../images/KingCrab.png";
+import { useEffect, useState } from "react";
 
-const HeaderLog = (Props) => {
+const HeaderLog = (props) => {
+  const userName = localStorage.getItem("userName");
+
+  const isLog = () => {
+    if (userName !== null) {
+      setLog(true);
+    } else {
+      setLog(false);
+    }
+  };
+
+  const [log, setLog] = useState(false);
+
+  useEffect(() => {
+    isLog();
+  }, []);
+
   return (
     <>
       <StyledDiv>
-      <a href="/MainLog" style={{ textDecoration: "none" }}>
-          <Logo>
-            <StyledImg src={KingCrabLogoWhite} />
-            <StyledP>대게</StyledP>
-          </Logo>
-        </a>
-        <a href="/Mypage" style={{ textDecoration: "none" }}>
-          <StyledP2>{Props.name}</StyledP2>
-        </a>
+        <Logo>
+          <StyledImg src={KingCrabLogoWhite} />
+          <StyledP>대게</StyledP>
+        </Logo>
+        {log ? (
+          <StyledP2>{userName}</StyledP2>
+        ) : (
+          <a href="/Login" style={{ textDecoration: "none" }}>
+            <StyledP2>로그인</StyledP2>
+          </a>
+        )}
       </StyledDiv>
     </>
   );
-}
+};
 
 const Logo = styled.div`
   width: 136px;
