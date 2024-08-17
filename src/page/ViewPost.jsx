@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import InfoComp from "../components/InfoComp";
@@ -10,6 +10,16 @@ import instance from "../api";
 import Swal from "sweetalert2";
 
 const ViewPost = () => {
+  const [viewData, setViewData] = useState([]);
+
+  const getData = () => {
+    instance.get("/comment/read{postId}").then((res) => {
+      console.log(res.data);
+
+      setViewData(res.data);
+    });
+  };
+
   const [data, setData] = useState({
     comment: "",
     id: "",
@@ -27,6 +37,7 @@ const ViewPost = () => {
       } else {
         instance.post("/create", data);
         setData({ comment: "" });
+        getData();
       }
     }
   };
@@ -38,6 +49,10 @@ const ViewPost = () => {
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
@@ -55,7 +70,10 @@ const ViewPost = () => {
               onKeyDown={onEnter}
               placeholder="댓글 달기"
             />
-            <DtComment />
+            {viewData.map((e) => (
+              <DtComment Id={e.comment} time={e.now} content={e.comment} />
+            ))}
+            <DtComment Id="test" time="test" content="test" />
           </CommentSection>
         </MainDiv>
       </StyledSpan>
