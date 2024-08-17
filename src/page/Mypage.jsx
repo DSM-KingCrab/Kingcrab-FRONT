@@ -7,7 +7,7 @@ import Write from "../images/jam_write-f.png";
 const MyPage = () => {
   return (
     <>
-      <HeaderLog Id="hi" />
+      <HeaderLog />
       <StyledDiv>
         <Body>
           <a href="/Mypage2" style={{ textDecoration: "none" }}>

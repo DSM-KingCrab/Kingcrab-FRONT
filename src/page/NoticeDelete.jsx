@@ -1,8 +1,20 @@
 import styled from "styled-components";
 import CancelComp from "../components/CancelComp";
 import ConfirmComp from "../components/ConfirmComp";
+import instance from "../api";
+import { useNavigate } from "react-router-dom";
 
 const NoticeDelete = (props) => {
+  const router = useNavigate();
+  const DeleteApi = () => {
+    const userName = localStorage.getItem(`userName`)
+    if (userName===props.name){
+      instance.delete(`/post/delete/${props.postId}`).then(router("/mainLog"))
+    } 
+    else{
+      alert("게시물을 삭제할 수 없습니다.");
+    }
+  }
   return (
     <>
       <Main>
@@ -15,9 +27,7 @@ const NoticeDelete = (props) => {
           <a href="/ViewPost" style={{ textDecoration: "none" }}>
             <CancelComp />
           </a>
-          <a href="/MainLog" style={{ textDecoration: "none" }}>
-            <ConfirmComp text="삭제" />
-          </a>
+            <ConfirmComp onClick={DeleteApi} text="삭제" />
         </Button>
       </Main>
     </>

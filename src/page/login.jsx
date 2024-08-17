@@ -5,22 +5,34 @@ import { theme } from "../styles/theme";
 import KingCrabLogo from "../images/KingCrab.png";
 import "../fonts/font.css";
 import Password from "../components/PassComp";
-import { useNavigate } from "react-router-dom";
+import instance from "../api";
 import axios from "axios";
 
 const Login = () => {
+  const NameApi = () => {
+    instance.get("/read/mypage").then((res) => {
+      const name = res.data;
+      localStorage.setItem("userName", name);
+    });
+  };
+
   const BASE_URL = process.env.REACT_APP_BASE_URL;
-  const router = useNavigate();
+
   const [data, setData] = useState({
     userName: "",
     password: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setData({ ...data, [name]: value }); console.log(data)
+    setData({ ...data, [name]: value });
+    console.log(data);
   };
   const onClick = () => {
-    axios.post(`${BASE_URL}login`, data).then(console.log("dedwe"));
+    axios.post(`${BASE_URL}login`, data).then((res) => {
+      const data = res.data;
+      localStorage.setItem("acessToken", data);
+      NameApi();
+    });
   };
   return (
     <StyledDiv>
@@ -40,14 +52,19 @@ const Login = () => {
             <input
               type="text"
               placeholder="아이디를 입력하세요"
-              onChange={handleChange} name="userName" value={data.userName}
+              onChange={handleChange}
+              name="userName"
+              value={data.userName}
             />
           </Id>
         </Input>
         <Password
           label="비밀번호"
           type="password"
-          placeholder="비밀번호를 입력하세요" onChange={handleChange} name="password" value={data.password}
+          placeholder="비밀번호를 입력하세요"
+          onChange={handleChange}
+          name="password"
+          value={data.password}
         />
         <LargeButton>
           <ButtonTest onClick={onClick} size={"Large"}>

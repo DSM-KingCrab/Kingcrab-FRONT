@@ -26,8 +26,8 @@ const MainLog = () => {
       <HeaderLog />
       <StyledDiv>
         <Styledsection>
-          {data.map((item) => (
-            <Post name={item.name} now={item.now} content={item.content} postId={item.postId} />
+          {data.map((item, index) => (
+            <Post key={index} name={item.name} now={item.now} content={item.content} postId={item.postId} />
           ))}
         </Styledsection>
       </StyledDiv>
