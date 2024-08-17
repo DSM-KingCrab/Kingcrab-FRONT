@@ -8,19 +8,21 @@ import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
 import instance from "../api";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
 
 const ViewPost = () => {
+  const param = useParams();
   const [viewData, setViewData] = useState([]);
 
   const getData = () => {
-    instance.get("/comment/read{postId}").then((res) => {
+    instance.get(`/comment/read/${param.id}`).then((res) => {
       setViewData(res.data);
     });
   };
 
   const [data, setData] = useState({
     comment: "",
-    id: "",
+    id: parseInt(param.id),
   });
 
   const onEnter = (e) => {
@@ -33,19 +35,15 @@ const ViewPost = () => {
           timer: 1500,
         });
       } else {
-        instance.post("/create", data);
-        setData({ comment: "" });
+        instance.post("/comment/create", data);
         getData();
       }
     }
   };
 
   const handleChange = (e) => {
-    const { value, name } = e.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
   };
 
   useEffect(() => {
@@ -69,7 +67,12 @@ const ViewPost = () => {
               placeholder="댓글 달기"
             />
             {viewData.map((e) => (
-              <DtComment Id={e.comment} time={e.now} content={e.comment} />
+              <DtComment
+                Id={e.commentId}
+                time={e.now}
+                content={e.comment}
+                name={e.username}
+              />
             ))}
             <DtComment
               Id="test"

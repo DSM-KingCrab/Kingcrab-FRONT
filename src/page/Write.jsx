@@ -14,7 +14,9 @@ const Write = () => {
   const router = useNavigate();
 
   const onClick = async () => {
-    await instance.post("/post/create", Posts).then(console.log("성공"), router("/ViewPost"));
+    await instance
+      .post("/post/create", Posts)
+      .then(console.log("성공"), router(`/ViewPost`));
   };
 
   const OnChange = (e) => {

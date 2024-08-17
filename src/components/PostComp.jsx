@@ -8,9 +8,13 @@ const Post = (Props) => {
     <StyledDiv>
       <Profile />
       <MainDiv>
-        <Id>{Props.name}</Id> <PostDate>{Props.now}</PostDate> <LikeComp>{Props.count}</LikeComp>
+        <Id>{Props.name}</Id> <PostDate>{Props.now}</PostDate>{" "}
+        <LikeComp>{Props.count}</LikeComp>
         <MainPost>{Props.content}</MainPost>
-        <a href="/ViewPost" style={{ textDecoration: "none" }}>
+        <a
+          href={`/ViewPost/${Props.postId}`}
+          style={{ textDecoration: "none" }}
+        >
           <More>더보기...</More>
         </a>
         <Comment placeholder="댓글 달기" />

@@ -23,14 +23,13 @@ class LikeComp extends React.Component {
   };
 
   render() {
-
     return (
       <React.Fragment>
         <LikeDiv>
           {this.state.isChecked ? (
-            <Num style={{color: "#ff2f54"}}>{this.state.notice}</Num>
+            <Num style={{ color: "#ff2f54" }}>{this.state.notice}</Num>
           ) : (
-            <Num style={{color: "#8c8a8f"}}>{this.state.notice}</Num>
+            <Num style={{ color: "#8c8a8f" }}>{this.state.notice}</Num>
           )}
 
           {this.state.isChecked ? (

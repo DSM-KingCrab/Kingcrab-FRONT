@@ -29,7 +29,7 @@ const DtComment = (props) => {
   };
   const commentPatch = (e) => {
     if (e.key === "Enter") {
-      instance.patch("/update", data);
+      instance.patch("/comment/update", data);
       setIsFixModalOpen(false);
     }
   };
@@ -48,7 +48,7 @@ const DtComment = (props) => {
 
   const [checkUser, setCheckUser] = useState(false);
   const isUserLog = () => {
-    if (data.id === userName) {
+    if (props.name === userName) {
       setCheckUser(true);
     } else {
       setCheckUser(false);
@@ -63,10 +63,8 @@ const DtComment = (props) => {
     <MainDiv>
       <StyledDiv>
         <Info>
-          <StyledP>{props.Id}</StyledP>
-          <StyledDate>
-            {props.time.toISOString.replace("T", " ").slice(0, -5)}
-          </StyledDate>{" "}
+          <StyledP>{props.name}</StyledP>
+          <StyledDate>{props.time}</StyledDate>{" "}
         </Info>
 
         <Icon>

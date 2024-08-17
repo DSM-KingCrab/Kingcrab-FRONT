@@ -16,9 +16,11 @@ const SignIn = () => {
 
   const [passwd, setRepassword] = useState("");
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const onClick = () => {
     if (IsName() === true && IdCheck() === true && passwdCheck() === true) {
-      axios.post("http://172.20.10.3:8080/signup", data);
+      axios.post(`${BASE_URL}signup`, data);
     } else {
       alert("모든 정보를 정확하게 입력해주세요.");
     }
@@ -46,9 +48,7 @@ const SignIn = () => {
   };
 
   const checkDup = async (userName) => {
-    const checkIdDup = await axios.get(
-      `http://172.20.10.3:8080/duplicate/${userName}`
-    );
+    const checkIdDup = await axios.get(`${BASE_URL}duplicate/${userName}`);
     if (checkIdDup === true) {
       Swal.fire({
         icon: "success",

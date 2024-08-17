@@ -7,8 +7,10 @@ import "../fonts/font.css";
 import Password from "../components/PassComp";
 import instance from "../api";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const router = useNavigate();
   const NameApi = () => {
     instance.get("/read/mypage").then((res) => {
       const name = res.data;
@@ -29,9 +31,10 @@ const Login = () => {
   };
   const onClick = () => {
     axios.post(`${BASE_URL}login`, data).then((res) => {
-      const data = res.data;
-      localStorage.setItem("acessToken", data);
-      NameApi();
+      const data = res.data.accessToken;
+      localStorage.setItem("accessToken", data);
+      router("/main");
+      // NameApi();
     });
   };
   return (
