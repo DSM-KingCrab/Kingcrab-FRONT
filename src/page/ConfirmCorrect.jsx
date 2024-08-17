@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import InfoComp from "../components/InfoComp";
-import Title from "../components/TitleComp";
-import Detail from "../components/Detail";
-import Comment from "../components/comentComp";
-import DtComment from "../components/DtComment";
+import Textarea from "../components/Textarea";
+import TitleWrite from "../components/TitleWrite";
+import CancelComp from "../components/CancelComp";
+import ConfirmComp from "../components/ConfirmComp";
 import NoticeCorrect from "../components/NoticeCorrect";
 
 const ConfirmCorrect = () => {
@@ -19,21 +19,31 @@ const ConfirmCorrect = () => {
         />
       </Cover>
       <HeaderLog />
-      <StyledSpan>
+      <StyledDiv>
         <MainDiv>
           <InfoComp />
-          <Title />
-          <Detail />
-          <CommentSection>
-            <Comment placeholder="댓글 달기" />
-            <DtComment Id="bbyongun_" />
-            <DtComment Id="bbyongun_" />
-          </CommentSection>
+          <TitleWrite />
+          <Textarea />
+          <Buttons>
+            <CancelComp />
+            <a href="/ConfirmCorrect" style={{ textDecoration: "none" }}>
+              <ConfirmComp text="수정" />
+            </a>
+          </Buttons>
         </MainDiv>
-      </StyledSpan>
+      </StyledDiv>
     </>
   );
 };
+
+const Buttons = styled.div`
+  margin-top: 32px;
+  float: right;
+`;
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const Cover = styled.div`
   background-color: rgba(157, 156, 160, 0.5);
@@ -45,24 +55,9 @@ const Cover = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const CommentSection = styled.section`
-  width: 1044px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  flex-wrap: wrap;
-`;
-const StyledSpan = styled.span`
-  display: flex;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-`;
+
 const MainDiv = styled.div`
   width: 1044px;
-  display: flex;
-  justify-self: center;
-  flex-wrap: wrap;
   margin-top: 36px;
 `;
 

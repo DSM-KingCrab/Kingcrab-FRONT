@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonTest from "../components/ButtonComp";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
 import KingCrabLogo from "../images/KingCrab.png";
 import "../fonts/font.css";
 import Password from "../components/PassComp";
-import { useNavigate } from "react-router-dom";
+import instance from "../api";
+import axios from "axios";
 
 const Login = () => {
-  const router = useNavigate();
+  const NameApi = () => {
+    instance.get("/read/mypage").then((res) => {
+      const name = res.data;
+      localStorage.setItem("userName", name);
+    });
+  };
+
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  const [data, setData] = useState({
+    userName: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+    console.log(data);
+  };
+  const onClick = () => {
+    axios.post(`${BASE_URL}login`, data).then((res) => {
+      const data = res.data;
+      localStorage.setItem("acessToken", data);
+      NameApi();
+    });
+  };
   return (
     <StyledDiv>
       <StyledImage src={KingCrabLogo} alt="대게 로고" />
@@ -24,21 +49,25 @@ const Login = () => {
         <Input>
           <Id>
             <p>아이디</p>
-            <input type="text" placeholder="아이디를 입력하세요" />
+            <input
+              type="text"
+              placeholder="아이디를 입력하세요"
+              onChange={handleChange}
+              name="userName"
+              value={data.userName}
+            />
           </Id>
         </Input>
         <Password
           label="비밀번호"
           type="password"
           placeholder="비밀번호를 입력하세요"
+          onChange={handleChange}
+          name="password"
+          value={data.password}
         />
         <LargeButton>
-          <ButtonTest
-            onClick={() => {
-              router("/main");
-            }}
-            size={"Large"}
-          >
+          <ButtonTest onClick={onClick} size={"Large"}>
             로그인
           </ButtonTest>
         </LargeButton>

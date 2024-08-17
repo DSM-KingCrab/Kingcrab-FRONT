@@ -4,38 +4,41 @@ import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { theme } from "../styles/theme";
 import plusImg from "../images/ic_round-plus.png";
-import instance from "../api/index";
+import instance from "../api";
 
 const MainLog = () => {
-  const [boardList, setBoardList] = useState([]);
+  const [data, setData] = useState([]);
 
+  const PostApi = async () => {
+    await instance
+      .get("/post/read")
+      .then((res) => setData(res))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
-    instance.get("http://172.20.10.3:8080/read").then((Response) => {
-      setBoardList(Response.data);
-    });
+    PostApi();
   }, []);
 
   return (
-    <div>
-      {boardList.map((e) => (
-        <>
-          <HeaderLog Id={e.name} />
-          <StyledDiv>
-            <Styledsection>
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-            </Styledsection>
-          </StyledDiv>
-          <Plus>
-            <AddPost>
-              <StyledImg src={plusImg} alt="추가" />
-            </AddPost>
-          </Plus>
-        </>
-      ))}
-    </div>
+    <>
+      <HeaderLog />
+      <StyledDiv>
+        <Styledsection>
+          {data.map((item, index) => (
+            <Post key={index} name={item.name} now={item.now} content={item.content} postId={item.postId} />
+          ))}
+        </Styledsection>
+      </StyledDiv>
+      <Plus>
+        <AddPost>
+          <a href="/Write" style={{ textDecoration: "none" }}>
+            <StyledImg src={plusImg} alt="추가" />
+          </a>
+        </AddPost>
+      </Plus>
+    </>
   );
 };
 

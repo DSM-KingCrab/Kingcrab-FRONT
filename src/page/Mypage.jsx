@@ -1,28 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import KingKrabLogo from "../images/KingCrab.png";
+import HeaderLog from "../components/HeaderCompLog";
 import Write from "../images/jam_write-f.png";
 
 const MyPage = () => {
   return (
     <>
-      <Header>
-        <Logo>
-          <img src={KingKrabLogo} alt="대게 로고" width={56} height={56} />
-          <p>대게</p>
-        </Logo>
-        <p>dodowind_</p>
-      </Header>
+      <HeaderLog />
       <StyledDiv>
         <Body>
-          <a href="/Mypage2">
+          <a href="/Mypage2" style={{ textDecoration: "none" }}>
             <img src={Write} alt="수정" width={48} height={48} />
           </a>
           <Circle>
             <label htmlFor="+">
               +
-              <input type="file" />
+              <Imginput type="file" id="+" />
             </label>
           </Circle>
           <h1>dodowind_</h1>
@@ -39,19 +33,8 @@ const StyledDiv = styled.div`
   justify-content: center;
 `;
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 40px;
-  font-size: 32px;
-  background-color: ${theme.color.main[100]};
-  color: ${theme.color.white};
-`;
-
-const Logo = styled.div`
-  display: flex;
-  gap: 21px;
-  align-items: center;
+const Imginput = styled.input`
+  display: none;
 `;
 
 const Body = styled.div`
@@ -65,9 +48,10 @@ const Body = styled.div`
   gap: 16px;
   margin-top: 252px;
   font-size: 18px;
-  & a {
-    align-self: flex-end;
-    margin: 32px 32px 0px 0px;
+  & img {
+    position: relative;
+    left: 290px;
+    top: 24px;
   }
 `;
 

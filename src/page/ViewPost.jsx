@@ -41,7 +41,7 @@ const ViewPost = () => {
 
   return (
     <>
-      <HeaderLog />
+      <HeaderLog Id="Hi"/>
       <StyledSpan>
         <MainDiv>
           <InfoComp />

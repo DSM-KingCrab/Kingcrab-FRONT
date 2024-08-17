@@ -1,13 +1,19 @@
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-const TitleWrite = () => {
+const TitleWrite = (Props) => {
   return (
     <MainDiv>
       <StyledSpan>
         <StyledP>제목</StyledP>
         <StyledDiv />
-        <StyledInput type="text" placeholder="제목을 입력하세요."/>
+        <StyledInput
+          type="text"
+          placeholder={Props.placeholder}
+          onChange={Props.OnChange}
+          name={Props.name}
+          value={Props.value}
+        />
       </StyledSpan>
     </MainDiv>
   );
@@ -21,7 +27,7 @@ const StyledInput = styled.input`
   display: inline;
   outline: none;
   border: none;
-`
+`;
 const StyledSpan = styled.span`
   height: 40px;
   display: flex;

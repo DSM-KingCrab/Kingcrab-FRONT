@@ -6,7 +6,7 @@ import Post from "../components/PostComp";
 const MainNoLog = () => {
   return (
     <>
-      <HeaderNoLog></HeaderNoLog>
+      <HeaderNoLog />
       <StyledDiv>
         <Styledsection>
           <Post />

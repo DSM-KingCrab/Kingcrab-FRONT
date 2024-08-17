@@ -17,9 +17,11 @@ const Correction = () => {
           <TitleWrite />
           <Textarea />
           <Buttons>
-            <CancelComp />
+            <a href="/ViewPost" style={{ textDecoration: "none" }}>
+              <CancelComp />
+            </a>
             <a href="/ConfirmCorrect" style={{ textDecoration: "none" }}>
-              <ConfirmComp text="완료" />
+              <ConfirmComp text="수정" />
             </a>
           </Buttons>
         </MainDiv>

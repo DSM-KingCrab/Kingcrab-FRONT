@@ -1,8 +1,20 @@
 import styled from "styled-components";
-import CancelComp from "./CancelComp";
-import ConfirmComp from "./ConfirmComp";
+import CancelComp from "../components/CancelComp";
+import ConfirmComp from "../components/ConfirmComp";
+import instance from "../api";
+import { useNavigate } from "react-router-dom";
 
-const NoticeCorrect = (props) => {
+const NoticeDelete = (props) => {
+  const router = useNavigate();
+  const DeleteApi = () => {
+    const userName = localStorage.getItem(`userName`)
+    if (userName===props.name){
+      instance.delete(`/post/delete/${props.postId}`).then(router("/mainLog"))
+    } 
+    else{
+      alert("게시물을 삭제할 수 없습니다.");
+    }
+  }
   return (
     <>
       <Main>
@@ -12,12 +24,10 @@ const NoticeCorrect = (props) => {
           <Desc2>{props.des}</Desc2>
         </SmallDiv>
         <Button>
-        <a href="/Correction" style={{ textDecoration: "none" }}>
+          <a href="/ViewPost" style={{ textDecoration: "none" }}>
             <CancelComp />
           </a>
-          <a href="/ViewPost" style={{ textDecoration: "none" }}>
-            <ConfirmComp text="수정" />
-          </a>
+            <ConfirmComp onClick={DeleteApi} text="삭제" />
         </Button>
       </Main>
     </>
@@ -29,7 +39,7 @@ const Button = styled.div`
   height: 56px;
   justify-content: space-between;
   margin-top: 40px;
-`
+`;
 const SmallDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -64,4 +74,4 @@ const Main = styled.div`
   padding: 42px 0 62px 0;
 `;
 
-export default NoticeCorrect;
+export default NoticeDelete;

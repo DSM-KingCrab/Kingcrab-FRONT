@@ -2,18 +2,18 @@ import styled from "styled-components";
 import { theme } from "../styles/theme";
 import LikeComp from "./LikeComp";
 
-const InfoComp = () => {
+const InfoComp = (Props) => {
   return (
     <MainDiv>
       <StyledSpan>
         <StyledP>작성자</StyledP>
         <StyledHr/>
-        <StyledP>dodowind_</StyledP>
+        <StyledP>{Props.name}</StyledP>
       </StyledSpan>
       <StyledSpan >
         <StyledP>작성일</StyledP>
         <StyledHr/>
-        <StyledP>2024.07.07</StyledP>
+        <StyledP>{Props.now}</StyledP>
       </StyledSpan>
       <LikeComp/>
     </MainDiv>

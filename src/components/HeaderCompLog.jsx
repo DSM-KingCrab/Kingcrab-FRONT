@@ -2,15 +2,19 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import KingCrabLogoWhite from "../images/KingCrab.png";
 
-const HeaderLog = (props) => {
+const HeaderLog = (Props) => {
   return (
     <>
       <StyledDiv>
-        <Logo>
-          <StyledImg src={KingCrabLogoWhite} />
-          <StyledP>대게</StyledP>
-        </Logo>
-        <StyledP2>{props.Id}</StyledP2>
+      <a href="/MainLog" style={{ textDecoration: "none" }}>
+          <Logo>
+            <StyledImg src={KingCrabLogoWhite} />
+            <StyledP>대게</StyledP>
+          </Logo>
+        </a>
+        <a href="/Mypage" style={{ textDecoration: "none" }}>
+          <StyledP2>{Props.name}</StyledP2>
+        </a>
       </StyledDiv>
     </>
   );

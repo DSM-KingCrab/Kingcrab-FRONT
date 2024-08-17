@@ -4,7 +4,7 @@ import styled from "styled-components";
 const ConfirmComp = (props) => {
   return (
     <>
-      <MainDiv>{props.text}</MainDiv>
+      <MainDiv onClick={props.onClick}>{props.text}</MainDiv>
     </>
   );
 };

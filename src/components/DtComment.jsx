@@ -3,14 +3,14 @@ import styled from "styled-components";
 import LikeComp from "./LikeComp";
 import Comment from "./comentComp";
 
-const DtComment = (props) => {
+const DtComment = (Props) => {
   return (
     <MainDiv>
-      <StyledP>{props.Id}</StyledP>
-      <StyledDate>{props.propDate}</StyledDate>
-      <LikeComp />
-      <Contents>{props.propComment}</Contents>
-      <Comment placeholder="답글 달기" />
+      <StyledP>{Props.username}</StyledP>
+      <StyledDate>{Props.now}</StyledDate>
+      <LikeComp/>
+      <Contents>{Props.comment}</Contents>
+      <Comment placeholder="답글 달기"/>
     </MainDiv>
   );
 };

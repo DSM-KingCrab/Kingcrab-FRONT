@@ -6,10 +6,12 @@ const HeaderNoLog = () => {
   return (
     <>
       <StyledDiv>
-        <Logo>
-          <StyledImg src={KingCrabLogoWhite} />
-          <StyledP>대게</StyledP>
-        </Logo>
+      <a href="/MainNoLog" style={{ textDecoration: "none" }}>
+          <Logo>
+            <StyledImg src={KingCrabLogoWhite} />
+            <StyledP>대게</StyledP>
+          </Logo>
+        </a>
         <a href="/Login" style={{ textDecoration: "none" }}>
           <StyledP2>로그인</StyledP2>
         </a>
