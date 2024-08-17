@@ -69,7 +69,7 @@ const ViewPost = () => {
             {viewData.map((e) => (
               <DtComment
                 Id={e.commentId}
-                time={e.now}
+                time={e.now.slice(0, 10)}
                 content={e.comment}
                 name={e.username}
               />
