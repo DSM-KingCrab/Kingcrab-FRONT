@@ -14,8 +14,6 @@ const ViewPost = () => {
 
   const getData = () => {
     instance.get("/comment/read{postId}").then((res) => {
-      console.log(res.data);
-
       setViewData(res.data);
     });
   };
@@ -56,7 +54,7 @@ const ViewPost = () => {
 
   return (
     <>
-      <HeaderLog Id="Hi"/>
+      <HeaderLog Id="Hi" />
       <StyledSpan>
         <MainDiv>
           <InfoComp />
@@ -73,7 +71,11 @@ const ViewPost = () => {
             {viewData.map((e) => (
               <DtComment Id={e.comment} time={e.now} content={e.comment} />
             ))}
-            <DtComment Id="test" time="test" content="test" />
+            <DtComment
+              Id="test"
+              time="2024-08-07T15:09:34.236045"
+              content="test"
+            />
           </CommentSection>
         </MainDiv>
       </StyledSpan>
