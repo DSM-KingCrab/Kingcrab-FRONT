@@ -2,7 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 import LikeComp from "./LikeComp";
 import dots from "../images/Frame 2080013184.png";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Comment from "./comentComp";
 import instance from "../api";
 
@@ -10,6 +10,11 @@ const DtComment = (props) => {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isFixModalOpen, setIsFixModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [data, setData] = useState({
+    comment: props.content,
+    id: props.Id,
+  });
+  const userName = localStorage.getItem("userName");
 
   //캐밥 열고 닫기
   const HandleKebabTogle = () => {
@@ -24,25 +29,53 @@ const DtComment = (props) => {
   };
   const commentPatch = (e) => {
     if (e.key === "Enter") {
-      instance.patch("/update");
+      instance.patch("/update", data);
+      setIsFixModalOpen(false);
     }
   };
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
   // 삭제하기 모달
   const HandleDeleteModalToggle = () => {
     setIsDeleteModalOpen((prevValue) => !prevValue);
   };
+
+  const [checkUser, setCheckUser] = useState(false);
+  const isUserLog = () => {
+    if (data.id === userName) {
+      setCheckUser(true);
+    } else {
+      setCheckUser(false);
+    }
+  };
+
+  useEffect(() => {
+    isUserLog();
+  }, []);
 
   return (
     <MainDiv>
       <StyledDiv>
         <Info>
           <StyledP>{props.Id}</StyledP>
-          <StyledDate>{props.time}</StyledDate>{" "}
+          <StyledDate>
+            {props.time.toISOString.replace("T", " ").slice(0, -5)}
+          </StyledDate>{" "}
         </Info>
 
         <Icon>
           <LikeComp />
-          <StyledImg onClick={HandleKebabTogle} src={dots} alt="더보기" />
+          {checkUser ? (
+            <StyledImg onClick={HandleKebabTogle} src={dots} alt="더보기" />
+          ) : (
+            <></>
+          )}
           {isKebabOpen && (
             <KebabDiv ref={optionsRef}>
               <StyledButton
@@ -63,9 +96,14 @@ const DtComment = (props) => {
         </Icon>
       </StyledDiv>
       {isFixModalOpen ? (
-        <Comment placeholder={props.content} onKeyDown={commentPatch} />
+        <Comment
+          onChange={handleChange}
+          onKeyDown={commentPatch}
+          name="comment"
+          value={data.comment}
+        />
       ) : (
-        <Contents>{props.content}</Contents>
+        <Contents>{data.comment}</Contents>
       )}
     </MainDiv>
   );
