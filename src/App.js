@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/MainNoLog" element={<MainNoLog />} />
-        <Route path="/ViewPost" element={<ViewPost />} />
+        <Route path="/ViewPost/:id" element={<ViewPost />} />
         <Route path="/Write" element={<Write />} />
         <Route path="/Correction" element={<Correction />} />
         <Route path="/ConfirmDelete" element={<ConfirmDelete />} />

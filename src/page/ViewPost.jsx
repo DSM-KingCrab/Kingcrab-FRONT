@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HeaderLog from "../components/HeaderCompLog";
 import InfoComp from "../components/InfoComp";
@@ -6,50 +6,79 @@ import Title from "../components/TitleComp";
 import Detail from "../components/Detail";
 import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
-import axios from "axios";
+import instance from "../api";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
 
-const ViewPost = (Props) => {
+const ViewPost = () => {
+  const param = useParams();
+  const [viewData, setViewData] = useState([]);
+
+  const getData = () => {
+    instance.get(`/comment/read/${param.id}`).then((res) => {
+      setViewData(res.data);
+    });
+  };
+
   const [data, setData] = useState({
     comment: "",
-    id: "",
+    id: parseInt(param.id),
   });
 
-  const onEnter = () => {
-    if (data.comment === "") {
-      Swal.fire({
-        toast: "댓글 내용을 입력해주세요.",
-      });
-    } else {
-      axios.post("http://172.20.10.3:8080/create", data);
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      if (data.comment === "") {
+        Swal.fire({
+          icon: "error",
+          title: "내용이 없습니다!",
+          text: "댓글 내용을 입력해주세요.",
+          timer: 1500,
+        });
+      } else {
+        instance.post("/comment/create", data);
+        getData();
+      }
     }
   };
 
   const handleChange = (e) => {
-    const { value, name } = e.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
-      <HeaderLog />
+      <HeaderLog Id="Hi" />
       <StyledSpan>
         <MainDiv>
           <InfoComp />
           <Title />
           <Detail />
-          <CommentSection>
+          <CommentSection id="commentSection">
             <Comment
               value={data.comment}
               name="comment"
               onChange={handleChange}
+              onKeyDown={onEnter}
               placeholder="댓글 달기"
             />
-            <DtComment />
-            <DtComment />
+            {viewData.map((e) => (
+              <DtComment
+                Id={e.commentId}
+                time={e.now}
+                content={e.comment}
+                name={e.username}
+              />
+            ))}
+            <DtComment
+              Id="test"
+              time="2024-08-07T15:09:34.236045"
+              content="test"
+            />
           </CommentSection>
         </MainDiv>
       </StyledSpan>

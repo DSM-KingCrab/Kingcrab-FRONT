@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderNoLog from "../components/HeaderCompNoLog";
+import HeaderLog from "../components/HeaderCompLog";
 import Post from "../components/PostComp";
 import { useState, useEffect } from "react";
 import instance from "../api";
@@ -21,7 +21,7 @@ const MainNoLog = () => {
   }, []);
   return (
     <>
-      <HeaderNoLog />
+      <HeaderLog />
       <StyledDiv>
         <Styledsection>
           {data?.map((item, index) => (
