@@ -26,11 +26,11 @@ const MainLog = () => {
       <HeaderLog />
       <StyledDiv>
         <Styledsection>
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <Post
               key={index}
               name={item.name}
-              now={item.now}
+              now={item.now.slice(0, 10)}
               content={item.content}
               postId={item.postId}
             />

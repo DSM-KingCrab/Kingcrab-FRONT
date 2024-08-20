@@ -2,10 +2,7 @@ import { theme } from "../styles/theme";
 import styled from "styled-components";
 
 const Detail = () => {
-  return (
-    <MainDiv>
-    </MainDiv>
-  );
+  return <MainDiv />
 };
 
 const MainDiv = styled.div`

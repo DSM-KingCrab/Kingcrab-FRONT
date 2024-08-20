@@ -8,7 +8,6 @@ import Comment from "../components/comentComp";
 import DtComment from "../components/DtComment";
 import NoticeDelete from "../page/NoticeDelete";
 
-
 const ConfirmDelete = () => {
   return (
     <>
@@ -17,21 +16,20 @@ const ConfirmDelete = () => {
           title="게시물을 삭제하시겠습니까?"
           describe="게시물을 삭제하면 복구할 수 없습니다."
           des="정말로 삭제하시겠습니까?"
-          />
+        />
       </Cover>
       <HeaderLog />
       <StyledSpan>
-          <MainDiv>
-            <InfoComp />
-            <Title />
-            <Detail />
-            <CommentSection>
-              <Comment placeholder="댓글 달기" />
-              <DtComment Id="bbyongun_"  />
-              <DtComment Id="bbyongun_" />
-            </CommentSection>
-          </MainDiv>
-        
+        <MainDiv>
+          <InfoComp />
+          <Title />
+          <Detail />
+          <CommentSection>
+            <Comment placeholder="댓글 달기" />
+            <DtComment />
+            <DtComment />
+          </CommentSection>
+        </MainDiv>
       </StyledSpan>
     </>
   );

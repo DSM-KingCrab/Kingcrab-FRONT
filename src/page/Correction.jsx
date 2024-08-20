@@ -47,9 +47,7 @@ const Correction = () => {
             <a href="/ViewPost" style={{ textDecoration: "none" }}>
               <CancelComp />
             </a>
-            <a href="/ConfirmCorrect" style={{ textDecoration: "none" }}>
-              <ConfirmComp text="수정" />
-            </a>
+            <ConfirmComp onClick={CorrectionApi} text="수정" />
           </Buttons>
         </MainDiv>
       </StyledDiv>
