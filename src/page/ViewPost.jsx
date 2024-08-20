@@ -9,13 +9,11 @@ import DtComment from "../components/DtComment";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const ViewPost = () => {
+const ViewPost = (Props) => {
   const [data, setData] = useState({
     comment: "",
     id: "",
   });
-
-  const [content, setContent] = useState("");
 
   const onEnter = () => {
     if (data.comment === "") {
@@ -37,7 +35,7 @@ const ViewPost = () => {
 
   return (
     <>
-      <HeaderLog Id="Hi"/>
+      <HeaderLog />
       <StyledSpan>
         <MainDiv>
           <InfoComp />

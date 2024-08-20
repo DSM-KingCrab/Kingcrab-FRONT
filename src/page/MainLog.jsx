@@ -12,7 +12,7 @@ const MainLog = () => {
   const PostApi = async () => {
     await instance
       .get("/post/read")
-      .then((res) => setData(res))
+      .then((res) => setData(res.data))
       .catch((err) => {
         console.log(err);
       });
@@ -26,8 +26,14 @@ const MainLog = () => {
       <HeaderLog />
       <StyledDiv>
         <Styledsection>
-          {data.map((item, index) => (
-            <Post key={index} name={item.name} now={item.now} content={item.content} postId={item.postId} />
+          {data?.map((item, index) => (
+            <Post
+              key={index}
+              name={item.name}
+              now={item.now.slice(0, 10)}
+              content={item.content}
+              postId={item.postId}
+            />
           ))}
         </Styledsection>
       </StyledDiv>

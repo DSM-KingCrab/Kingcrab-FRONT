@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { theme } from "../styles/theme";
 import KingCrabLogo from "../images/KingCrab.png";
 import "../fonts/font.css";
-import Password from "../components/PassComp";
+import Pass from "../components/Pass";
 import instance from "../api";
 import axios from "axios";
 
@@ -58,7 +58,7 @@ const Login = () => {
             />
           </Id>
         </Input>
-        <Password
+        <Pass
           label="비밀번호"
           type="password"
           placeholder="비밀번호를 입력하세요"
@@ -75,7 +75,7 @@ const Login = () => {
           <b>
             계정이 없으신가요? 대게에
             <a href="/SignIn" style={{ textDecoration: "none" }}>
-              <Span>회원가입</Span>
+              <Span> 회원가입</Span>
             </a>
             하세요.
           </b>

@@ -4,7 +4,7 @@ import openEye from "../images/mdi_eye.png";
 import closeEye from "../images/mdi_eye-off.png";
 import { useState } from "react";
 
-const Password = (props) => {
+const Pass = (props) => {
   const [pwType, setPwType] = useState({
     type: "password",
     visible: false,
@@ -42,8 +42,8 @@ const Password = (props) => {
 const StyledP = styled.p`
   display: flex;
   justify-content: flex-start;
-  font-size: 24px;
-  margin: 32px 0px 22px 0px;
+  font-size: 16px;
+  margin: 32px 0px 22px 370px;
 `;
 const InputBox = styled.div`
   width: 602px;
@@ -51,12 +51,14 @@ const InputBox = styled.div`
   border-radius: 8px;
   font-size: 16px;
   padding: 0px 10px;
-  border: 1px solid ${theme.color.gray[100]};
+  border: 1px solid ${theme.color.gray[700]};
+  margin-left: 370px;
+  margin-bottom: 20px;
 `;
 const StyledInput = styled.input`
   &::placeholder {
     color: ${theme.color.gray[500]};
-    font-size: 18px;
+    font-size: 16px;
   }
   font-size: 18px;
   outline: none;
@@ -75,4 +77,4 @@ const StyledSpan = styled.span`
   margin-top: 8px;
 `;
 
-export default Password;
+export default Pass;

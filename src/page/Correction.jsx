@@ -6,23 +6,44 @@ import TitleWrite from "../components/TitleWrite";
 import Textarea from "../components/Textarea";
 import CancelComp from "../components/CancelComp";
 import ConfirmComp from "../components/ConfirmComp";
+import { useNavigate } from "react-router-dom";
+import instance from "../api";
+import { useState } from "react";
 
-const Correction = () => {
+const Correction = (props) => {
+  const router = useNavigate();
+  const CorrectionApi = () => {
+    const userName = localStorage.getItem(`userName`);
+    if (userName === props.name) {
+      instance.patch(`/post/update/${props.postId}`).then(router("/mainLog"));
+    } else {
+      alert("타인의 게시물은 수정할 수 없습니다.");
+    }
+  };
+
+  const OnChange = (e) => {
+    const { name, value } = e.target;
+    setPosts({ ...Posts, [name]: value });
+    console.log(Posts);
+  };
+
+  const [Posts, setPosts] = useState({
+    title: "",
+    content: "",
+  });
   return (
     <>
       <HeaderLog />
       <StyledDiv>
         <MainDiv>
           <InfoComp />
-          <TitleWrite />
-          <Textarea />
+          <TitleWrite name="title" value={Posts.title} OnChange={OnChange} />
+          <Textarea name="content" value={Posts.content} OnChange={OnChange} />
           <Buttons>
             <a href="/ViewPost" style={{ textDecoration: "none" }}>
               <CancelComp />
             </a>
-            <a href="/ConfirmCorrect" style={{ textDecoration: "none" }}>
-              <ConfirmComp text="수정" />
-            </a>
+            <ConfirmComp onClick={CorrectionApi} text="수정" />
           </Buttons>
         </MainDiv>
       </StyledDiv>

@@ -46,9 +46,7 @@ const SignIn = () => {
   };
 
   const checkDup = async (userName) => {
-    const checkIdDup = await axios.get(
-      `http://172.20.10.3:8080/duplicate/${userName}`
-    );
+    const checkIdDup = await axios.get(`http://172.20.10.3:8080/duplicate/${userName}`);
     if (checkIdDup === true) {
       Swal.fire({
         icon: "success",
@@ -75,8 +73,7 @@ const SignIn = () => {
   };
 
   const passwdCheck = () => {
-    const checkPasswd =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
+    const checkPasswd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
 
     if (checkPasswd.test(data.password)) {
       return true;
@@ -118,9 +115,7 @@ const SignIn = () => {
           {IdCheck() ? (
             <StyledP2>올바른 아이디 형식입니다.</StyledP2>
           ) : (
-            <StyledP3>
-              5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.
-            </StyledP3>
+            <StyledP3>5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</StyledP3>
           )}
           <Password
             label="비밀번호"
@@ -133,9 +128,7 @@ const SignIn = () => {
           {passwdCheck() ? (
             <StyledP2>올바른 비밀번호 형식입니다.</StyledP2>
           ) : (
-            <StyledP3>
-              8~16자의 영문 대 소문자, 숫자, 특수문자를 포함하게 작성하세요.
-            </StyledP3>
+            <StyledP3>8~16자의 영문 대 소문자, 숫자, 특수문자를 포함하게 작성하세요.</StyledP3>
           )}
           <Password
             label="비밀번호 확인"
@@ -145,11 +138,7 @@ const SignIn = () => {
             name="passwd"
             onChange={handleRepassword}
           />
-          {IsName() ? (
-            <StyledP2>비밀번호가 일치합니다</StyledP2>
-          ) : (
-            <StyledP3>비밀번호가 일치하지 않습니다</StyledP3>
-          )}
+          {IsName() ? <StyledP2>비밀번호가 일치합니다</StyledP2> : <StyledP3>비밀번호가 일치하지 않습니다</StyledP3>}
           <StyledButton>
             <ButtonComp onClick={onClick} size={"Large"}>
               회원가입
