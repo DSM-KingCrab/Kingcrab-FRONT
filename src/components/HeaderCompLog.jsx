@@ -3,7 +3,7 @@ import styled from "styled-components";
 import KingCrabLogoWhite from "../images/KingCrab.png";
 import { useEffect, useState } from "react";
 
-const HeaderLog = (props) => {
+const HeaderLog = () => {
   const userName = localStorage.getItem("userName");
 
   const isLog = () => {

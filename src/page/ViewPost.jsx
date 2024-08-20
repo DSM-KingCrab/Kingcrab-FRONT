@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
 const ViewPost = () => {
+  const userName = localStorage.getItem("userName");
   const param = useParams();
   const [viewData, setViewData] = useState([]);
 
@@ -32,7 +33,12 @@ const ViewPost = () => {
           icon: "error",
           title: "내용이 없습니다!",
           text: "댓글 내용을 입력해주세요.",
-          timer: 1500,
+        });
+      } else if (data.id !== userName) {
+        Swal.fire({
+          icon: "error",
+          title: "로그인 하세요!",
+          text: "댓글은 로그인 후에 작성 가능합니다",
         });
       } else {
         instance.post("/comment/create", data);
@@ -74,11 +80,6 @@ const ViewPost = () => {
                 name={e.username}
               />
             ))}
-            <DtComment
-              Id="test"
-              time="2024-08-07T15:09:34.236045"
-              content="test"
-            />
           </CommentSection>
         </MainDiv>
       </StyledSpan>

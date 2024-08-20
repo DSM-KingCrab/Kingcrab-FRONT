@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const router = useNavigate();
   const NameApi = () => {
-    instance.get("/read/mypage").then((res) => {
+    instance.get("read/mypage").then((res) => {
       const name = res.data;
       localStorage.setItem("userName", name);
     });
@@ -33,8 +33,8 @@ const Login = () => {
     axios.post(`${BASE_URL}login`, data).then((res) => {
       const data = res.data.accessToken;
       localStorage.setItem("accessToken", data);
-      router("/main");
-      // NameApi();
+      router("/MainLog");
+      NameApi();
     });
   };
   return (

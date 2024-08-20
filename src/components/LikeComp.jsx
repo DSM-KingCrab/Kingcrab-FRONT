@@ -1,51 +1,52 @@
 import styled from "styled-components";
 import heartFilled from "../images/ph_heart-fill.png";
 import heartBlank from "../images/octicon_heart-16.png";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { theme } from "../styles/theme";
+import axios from "axios";
 
-class LikeComp extends React.Component {
-  state = {
-    isChecked: false,
-    notice: " ",
+const LikeComp = () => {
+  const [data, setData] = useState({
+    count: 0,
+    click: false,
+  });
+
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  const getData = () => {
+    const count = axios.post(`${BASE_URL}post/like{postId}`, data);
+    setData(count);
   };
 
-  onClick = () => {
-    this.state.isChecked
-      ? this.setState({
-          isChecked: false,
-          notice: " ",
-        })
-      : this.setState({
-          isChecked: true,
-          notice: "1",
-        });
+  const [isChecked, setIsChecked] = useState(false);
+  const handleCheck = () => {
+    setIsChecked(!isChecked);
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <LikeDiv>
-          {this.state.isChecked ? (
-            <Num style={{ color: "#ff2f54" }}>{this.state.notice}</Num>
-          ) : (
-            <Num style={{ color: "#8c8a8f" }}>{this.state.notice}</Num>
-          )}
+  useEffect(() => {
+    getData();
+  });
 
-          {this.state.isChecked ? (
-            <StyledImg1 src={heartFilled} onClick={this.onClick} />
-          ) : (
-            <StyledImg2
-              src={heartBlank}
-              style={{ fontSize: "36px" }}
-              onClick={this.onClick}
-            />
-          )}
-        </LikeDiv>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <LikeDiv onClick={handleCheck}>
+      {isChecked ? (
+        <Num style={{ color: "#ff2f54" }}>{setData(data.count + 1)}</Num>
+      ) : (
+        <Num style={{ color: "#8c8a8f" }}>{data.count}</Num>
+      )}
+
+      {isChecked ? (
+        <StyledImg1 src={heartFilled} onClick={handleCheck} />
+      ) : (
+        <StyledImg2
+          src={heartBlank}
+          style={{ fontSize: "36px" }}
+          onClick={handleCheck}
+        />
+      )}
+    </LikeDiv>
+  );
+};
 
 const Num = styled.p`
   font-size: 24px;

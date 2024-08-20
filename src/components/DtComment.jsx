@@ -5,14 +5,14 @@ import dots from "../images/Frame 2080013184.png";
 import React, { useEffect, useRef, useState } from "react";
 import Comment from "./comentComp";
 import instance from "../api";
+import Swal from "sweetalert2";
 
 const DtComment = (props) => {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isFixModalOpen, setIsFixModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [data, setData] = useState({
     comment: props.content,
-    id: props.Id,
+    id: props.name,
   });
   const userName = localStorage.getItem("userName");
 
@@ -43,7 +43,26 @@ const DtComment = (props) => {
 
   // 삭제하기 모달
   const HandleDeleteModalToggle = () => {
-    setIsDeleteModalOpen((prevValue) => !prevValue);
+    Swal.fire({
+      title: "댓글을 삭제하시겠습니까?",
+      text: "댓글을 삭제하면 복구할 수 없습니다",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FF6D87",
+      cancelButtonColor: "#AFADB1",
+      confirmButtonText: "삭제",
+      cancelButtonText: "취소",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        instance.delete("/delete/{commentId}", data);
+
+        Swal.fire({
+          title: "삭제완료",
+          text: "댓글이 삭제되었습니다",
+          icon: "success",
+        });
+      }
+    });
   };
 
   const [checkUser, setCheckUser] = useState(false);
@@ -138,8 +157,9 @@ const KebabDiv = styled.div`
   align-items: center;
   justify-content: center;
   padding: 6px;
-  position: fixed;
-  margin: 80px 90px 0 0;
+  position: absolute;
+  top: 34px;
+  right: 6px;
 `;
 const Info = styled.div``;
 const StyledDiv = styled.div`
@@ -188,6 +208,7 @@ const MainDiv = styled.div`
   margin-top: 20px;
   display: inline;
   padding: 0 0 16px 0;
+  position: relative;
 `;
 
 export default DtComment;

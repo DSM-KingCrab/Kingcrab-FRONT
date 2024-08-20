@@ -22,7 +22,10 @@ const SignIn = () => {
     if (IsName() === true && IdCheck() === true && passwdCheck() === true) {
       axios.post(`${BASE_URL}signup`, data);
     } else {
-      alert("모든 정보를 정확하게 입력해주세요.");
+      Swal.fire({
+        icon: "error",
+        title: "모든 정보를 정확하게 입력해주세요",
+      });
     }
   };
 
@@ -48,21 +51,34 @@ const SignIn = () => {
   };
 
   const checkDup = async (userName) => {
-    const checkIdDup = await axios.get(`${BASE_URL}duplicate/${userName}`);
+    const checkIdDup = (await axios.get(`${BASE_URL}duplicate/${userName}`))
+      .data;
+    console.log(checkIdDup);
+
     if (checkIdDup === true) {
       Swal.fire({
         icon: "success",
-        title: "중복되는 아이디 없음",
-        text: "사용 가능한 아이디입니다🥳.",
+        title: "중복되지 않는 아이디",
+        text: "아이디를 사용할 수 있어요🥳.",
       });
     } else {
       Swal.fire({
         icon: "warning",
-        title: "중복되는 아이디 있음",
-        text: "이미 존재하는 아이디입니다😥.",
+        title: "이미 존재하는 아이디",
+        text: "아이디를 사용할 수 없어요😥.",
       });
     }
   };
+
+  //버튼 비활성화 시키는 기능
+  // const [isAble, setIsAble] = useState(false);
+  // const CheckAble = () => {
+  //   if (IdCheck === true) {
+  //     setIsAble(true);
+  //   } else {
+  //     setIsAble(false);
+  //   }
+  // };
 
   const IdCheck = () => {
     const checkId = /^[a-z0-9_-]{5,20}$/;
@@ -87,6 +103,7 @@ const SignIn = () => {
 
   useEffect(() => {
     IsName();
+    //CheckAble();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passwd, data.password]);
 
@@ -112,8 +129,14 @@ const SignIn = () => {
               placeholder="아이디를 입력하세요"
               onChange={handleChange}
             />
-
             <Dup onClick={() => checkDup(data.userName)}>중복 확인</Dup>
+            {/* {isAble ? ( // 버튼 비활성화
+            
+            ) : (
+              <DupDis onClick={() => checkDup(data.userName)} disabled>
+                중복 확인
+              </DupDis>
+            )} */}
           </InputDiv>
           {IdCheck() ? (
             <StyledP2>올바른 아이디 형식입니다.</StyledP2>
@@ -178,6 +201,18 @@ const Dup = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+// const DupDis = styled.button`
+//   width: 140px;
+//   height: 48px;
+//   margin-left: 8px;
+//   background-color: ${theme.color.main[200]};
+//   font-size: 18px;
+//   font-weight: bold;
+//   color: white;
+//   display: inline;
+//   border: none;
+//   border-radius: 10px;
+// `;
 const BigDiv = styled.div`
   display: flex;
   justify-content: center;
